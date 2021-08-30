@@ -1,0 +1,18 @@
+/**
+* 按照姓名查找员工信息
+*/
+EMP *findname(char *name)
+{
+    EMP *emp1;
+    emp1=emp_first;
+    
+    while(emp1)
+    {
+        if(strcmp(name,emp1->name)==0)      //比较输入的姓名和链表中的记载姓名是否相同
+        {
+			return emp1;
+		}
+        emp1=emp1->next;          
+    }    
+    return NULL;
+}

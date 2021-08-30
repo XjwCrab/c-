@@ -1,0 +1,21 @@
+/*******函  数  声  明 *******/
+void gotoxy(int x,int y); 	//设置光标位置
+int  color(int c);          	//更改文字颜色
+void printsnake();         	//字符画---蛇
+void welcometogame();     	//开始界面
+void createMap();         		//绘制地图
+void scoreandtips();			//游戏界面右侧的得分和小提示
+void initsnake();          	//初始化蛇身，画蛇身
+void createfood();				//创建并随机出现食物
+int  biteself();            	//判断是否咬到了自己
+void cantcrosswall();       	//设置蛇撞墙的情况
+void speedup();				//加速
+void speeddown();				//减速
+void snakemove(); 				//控制蛇前进方向
+void keyboardControl();		//控制键盘按键
+void Lostdraw();				//游戏结束界面
+void endgame(); 				//游戏结束
+void choose(); 				//游戏失败之后的选择
+void File_out();				//在文件中读取最高分
+void File_in();            	//储存最高分进文件
+void explation();				//游戏说明

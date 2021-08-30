@@ -1,0 +1,21 @@
+/**
+*  自定义查找函数
+*/
+void search() 
+{ 
+	FILE *fp;
+  	int snum,i,m=0;
+  	if((fp=fopen("data.txt","rb"))==NULL)
+     { 
+	 	printf("文件不存在！\n");
+		return;
+	}
+  	while(!feof(fp))  
+	  if(fread(&stu[m],LEN,1,fp)==1) 
+	  m++;
+  	fclose(fp);
+  	if(m==0) 
+	{
+	  	printf("文件中没有记录！\n");
+	  	return;
+	}

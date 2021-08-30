@@ -1,0 +1,88 @@
+/*
+*   ×Ö·û»­---Éß
+*/
+void printsnake()
+{
+	gotoxy(35,1);
+	color(6);
+	printf("/^\\/^\\");      //ÉßÑÛ¾¦
+
+	gotoxy(34,2);
+	printf("|__|  O|");      //ÉßÑÛ¾¦
+
+	gotoxy(33,2);
+	color(2);
+	printf("_");
+
+	gotoxy(25,3);
+	color(12);
+	printf("\\/");      		//ÉßÐÅ
+
+	gotoxy(31,3);
+	color(2);
+	printf("/");
+
+	gotoxy(37,3);
+	color(6);
+	printf(" \\_/");     		//ÉßÑÛ¾¦
+
+	gotoxy(41,3);
+	color(10);
+	printf(" \\");
+
+	gotoxy(26,4);
+	color(12);
+	printf("\\____");   		//ÉàÍ·
+
+	gotoxy(32,4);
+	printf("_________/");
+
+	gotoxy(31,4);
+	color(2);
+	printf("|");
+
+	gotoxy(43,4);
+	color(10);
+	printf("\\");
+
+	gotoxy(32,5);
+	color(2);
+	printf("\\_______");     //Éß×ì
+
+	gotoxy(44,5);
+	color(10);
+	printf("\\");
+
+	gotoxy(39,6);
+	printf("|     |                  \\");  //ÏÂÃæ¶¼ÊÇ»­ÉßÉí
+
+	gotoxy(38,7);
+	printf("/      /                   \\");
+
+	gotoxy(37,8);
+	printf("/      /                    \\ \\");
+
+	gotoxy(35,9);
+	printf("/      /                       \\ \\");
+
+	gotoxy(34,10);
+	printf("/     /                          \\  \\");
+
+	gotoxy(33,11);
+	printf("/     /             _----_         \\   \\");
+
+	gotoxy(32,12);
+	printf("/     /           _-~      ~-_         |  |");
+
+	gotoxy(31,13);
+	printf("(      (        _-~    _--_    ~-_     _/  |");
+
+	gotoxy(32,14);
+	printf("\\     ~-____-~    _-~    ~-_    ~-_-~    /");
+
+	gotoxy(33,15);
+	printf("~-_           _-~          ~-_       _-~");
+
+	gotoxy(35,16);
+	printf("~--______-~                ~-___-~");
+}

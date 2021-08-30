@@ -1,0 +1,18 @@
+/**
+* 按照电话号码查询员工信息
+*/
+EMP *findtelephone(char *name)
+{
+     EMP *emp1;
+     emp1=emp_first;
+     while(emp1)
+     {
+         if((strcmp(name,emp1->tel_office)==0)||
+         (strcmp(name,emp1->tel_home)==0)||
+         (strcmp(name,emp1->mobile)==0))        //使用逻辑或判断通讯号码
+         return emp1;
+         emp1=emp1->next;
+                 
+     }  
+      return NULL;       
+}

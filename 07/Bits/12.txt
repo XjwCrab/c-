@@ -1,0 +1,71 @@
+/**
+ * 删除员工信息
+ */
+void delemp()
+{
+    int findok=0;
+    EMP *emp1,*emp2;
+    char name[10],choice;
+    system("cls");              							//对屏幕清屏
+    printf("\n输入要删除的员工姓名：");
+    scanf("%s",name);
+    
+    emp1=emp_first;
+    emp2=emp1;
+    while(emp1)
+    {
+        if(strcmp(emp1->name,name)==0)
+        {
+            findok=1;
+            system("cls");
+            printf("员工：%s的信息如下：",emp1->name);	//显示要删除的员工信息
+            bound('_',40);
+            printf("工号：%d\n",emp1->num);
+            printf("职务：%s\n",emp1->duty);
+            printf("姓名：%s\n",emp1->name);
+            printf("性别：%s\n",emp1->sex);
+            printf("年龄：%d\n",emp1->age);
+            printf("文化程度：%s\n",emp1->edu);
+            printf("工资：%d\n",emp1->salary);
+            printf("办公电话：%s\n",emp1->tel_office);
+            printf("家庭电话：%s\n",emp1->tel_home);
+            printf("移动电话：%s\n",emp1->mobile);
+            printf("QQ号码：%s\n",emp1->qq);
+            printf("住址:%\ns",emp1->address);  
+            bound('_',40);
+            printf("您真的要删除该员工吗？(y/n)");
+            
+            fflush(stdin);          					//清除缓冲区
+            choice=getchar();
+            
+            if(choice!='y' && choice!='Y')				//确定删除
+            {
+            	return;
+			}
+            if(emp1==emp_first)
+			{
+				emp_first=emp1->next;
+			}
+            else
+			{
+				emp2->next=emp1->next;
+            }
+            printf("员工%s已被删除",emp1->name);
+            getch();
+            free(emp1);
+            gsave=1;
+            savedata();             						//保存数据
+            return;                           
+        }else{        
+                emp2=emp1;
+                emp1=emp1->next;
+        }
+    }    
+    if(!findok)
+    {
+        bound('_',40);
+        printf("\n没有找到姓名是：%s的信息！\n",name);  //没找到信息后的提示
+        getch();           
+    } 
+    return;
+} 

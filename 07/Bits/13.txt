@@ -1,0 +1,71 @@
+/**
+* 查询员工信息
+*/
+void findemp()
+{
+     int choice,ret=0,num;
+     char str[13];
+     EMP *emp1;
+     
+     system("cls");
+     
+     do{
+         printf("\t查询员工信息\n");
+         bound('_',30);                                //绘制分界线
+         printf("\t1.按姓名查询\n");
+         printf("\t2.按工号查询\n");
+         printf("\t3.按电话查询\n");
+         printf("\t4.按QQ号查询\n");
+         printf("\t0.返回主菜单\n");
+         bound('_',30);
+         printf("\n请选择菜单：");
+         
+         do{
+             fflush(stdin);                          //清除缓冲区
+             choice=getchar();
+             system("cls");
+             switch(choice)
+             {
+                 case '1':
+                      printf("\n输入要查询的员工姓名：");
+                      scanf("%s",str);
+                      emp1=findname(str);
+                      displayemp(emp1,"姓名",str);  //显示员工信息
+                      getch();
+                      break; 
+                      
+                 case '2':
+                      printf("\n请输入要查询的员工的工号"); 
+                      scanf("%d",&num); 
+                      emp1=findnum(num);
+                      itoa(num,str,10);
+                      displayemp(emp1,"工号",str);
+                      getch();
+                      break;
+                      
+                  case '3':
+                       printf("\n输入要查询员工的电话:");
+                       scanf("%s",str);
+                       emp1=findtelephone(str); 
+                       displayemp(emp1,"电话",str);
+                       getch();
+                       break;
+                       
+                  case '4':
+                       printf("\n输入要查询的员工的QQ号：");
+                       scanf("%s",str);
+					   emp1=findqq(str);
+                       displayemp(emp1,"QQ号码",str);
+                       getch();
+                       break;
+                       
+                   case '0':
+                        ret=1;
+                        break;          
+             }                         
+         }while(choice<'0'||choice>'4');
+         
+         system("cls");
+         if(ret) break;
+     }while(1);    
+}

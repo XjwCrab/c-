@@ -1,0 +1,17 @@
+//存储员工信息的结构体
+typedef struct employee        	
+{
+    int num;                   		//员工编号
+    char duty[10];             	//员工职务
+    char name[10];             	//员工姓名
+    char sex[3];               	//员工性别
+    unsigned char age;         	//员工年龄
+    char edu[10];              	//教育水平
+    int salary;                	//员工工资
+    char tel_office[13];       	//办公电话
+    char tel_home[13];         	//家庭电话
+    char mobile[13];           	//手机
+    char qq[11];               	//qq号码
+    char address[31];          	//家庭住址
+    struct employee *next;
+}EMP;

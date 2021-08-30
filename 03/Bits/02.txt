@@ -1,0 +1,5 @@
+/*******宏  定  义*******/
+#define U 1
+#define D 2
+#define L 3
+#define R 4       //蛇的状态，U：上 ；D：下；L:左 R：右

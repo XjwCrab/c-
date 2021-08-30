@@ -1,0 +1,86 @@
+			case 6:
+				printf("计算任意两天之间的天数差：\r\n\r\n");
+				printf("请输入第一个日期：Year Month Day>");
+				while (1)
+				{
+					scanf("%d %d %d",&year,&month,&day);
+					if (year<=start_year||year>end_year||month>12||month<1||day>31||day<1)
+					{
+						error_times++;
+						printf("您输入的日期有误，请重新输入第一个日期（错误%d次/5次）：Year Month Day>",error_times);
+						if (error_times>=5)
+						{
+							printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+							system("pause >nul");
+							return 1;
+						}
+					}else
+					{
+						dMn=GetDaysOfMonth(year,month,false,false);
+						if (day>dMn)
+						{
+							error_times++;
+							printf("当前月份只有%d天。请重新输入第一个日期（错误%d次/5次）：Year Month Day>",dMn,error_times);
+							if (error_times>=5)
+							{
+								printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+								system("pause >nul");
+								return 1;
+							}
+						}else
+						{
+							break;;
+						}
+					}
+				}
+				lt2.wYear=year;
+				lt2.wMonth=month;
+				lt2.wDay=day;
+				printf("请输入第二个日期：Year Month Day>");
+				while (1)
+				{
+					scanf("%d %d %d",&year,&month,&day);
+					if (year<=start_year||year>end_year||month>12||month<1||day>31||day<1)
+					{
+						error_times++;
+						printf("您输入的日期有误，请重新输入第二个日期（错误%d次/5次）：Year Month Day>",error_times);
+						if (error_times>=5)
+						{
+							printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+							system("pause >nul");
+							return 1;
+						}
+					}else
+					{
+						dMn=GetDaysOfMonth(year,month,false,false);
+						if (day>dMn)
+						{
+							error_times++;
+							printf("当前月份只有%d天。请重新输入第二个日期（错误%d次/5次）：Year Month Day>",dMn,error_times);
+							if (error_times>=5)
+							{
+								printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+								system("pause >nul");
+								return 1;
+							}
+						}else
+						{
+							break;;
+						}
+					}
+				}
+				days=Jizhun(lt2.wYear,lt2.wMonth,lt2.wDay)-Jizhun(year,month,day);
+				hOut = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+				SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+				printf("\n%d-%d-%d ",lt2.wYear,lt2.wMonth,lt2.wDay);
+				SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+				printf("与");
+				SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+				printf("%d-%d-%d ",year,month,day);
+				SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+				printf("相差 【");
+				SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);	//红字
+				printf(" %d ",abs(days));
+				SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+				printf("】天。\r\n");
+				break;

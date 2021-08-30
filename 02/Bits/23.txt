@@ -1,0 +1,24 @@
+     	//只要Gamefaile()或者Gamewin()任意一个函数返回1，也就是成功或是失败都会出现下面的内容
+        if(Gamefaile()+Gamewin() != 0)  
+	    {
+	    	int n;
+	    	gotoxy(20,20);
+			color(12);
+			printf("我要重新玩一局-------1");
+			gotoxy(45,20);
+			printf("不玩了，退出吧-------2\n");
+			gotoxy(43,21);
+			color(11);
+			scanf("%d", &n);
+    		switch (n)
+    		{
+    			case 1:
+        			Replay();         //重新游戏函数
+        			break;
+    			case 2:
+        			exit(0);    		 //关闭游戏
+        			break;
+    		}
+		}
+	}
+

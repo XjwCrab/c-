@@ -1,0 +1,49 @@
+/**
+ * 主函数f
+ */
+int main()
+{
+	system("color f0");             //设置为白底
+	int mode=0;						//查询选择模式
+	int year,month,day,dMn,days;	//输入的年月日以及天数
+	int error_times=0;				//输入的错误计数
+	LUNARDATE lunar_date;
+	LONGTIME lt,lt2;
+
+	while(error_times<5)
+	{
+		year=-1,month=-1,day=-1,dMn=-1,days=9025910;
+		//设置标题
+		printf("\t\t\t    超级万年历(1840～2100)\n\n");
+		lt=GetCurTime();				//获得当前时间
+		hOut = GetStdHandle(STD_OUTPUT_HANDLE);						//获取控制台句柄
+		SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);   	//更改文字颜色，为红色
+		printf("\t\t\t   %d-%d-%d %02d:%02d:%02d %s\r\n\n",lt.wYear,lt.wMonth,lt.wDay,lt.wHour,lt.wMinute,lt.wSecond,Xingqi[lt.wDayOfWeek]);
+		SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);   	//改回文字颜色，白底黑字
+		SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);
+		printf("\t\t\t       ★");
+		SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED|FOREGROUND_BLUE);
+		printf("★");
+		SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+		printf("功能选择");
+		SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE|FOREGROUND_GREEN);
+		printf("★");
+		SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);
+		printf("★          \n\n");
+		SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+
+		//输出菜单选项
+		printf("\t\t-------------------------------------------------\n");
+		printf("\t\t|\t*  1、查询农历。\t\t\t|\n\t\t|\t\t\t\t\t\t|\n\t\t|\t*  "
+				"2、查询公历。\t\t\t|\n\t\t|\t\t\t\t\t\t|\n\t\t|\t*  "
+				"3、显示月历。\t\t\t|\n\t\t|\t\t\t\t\t\t|\n\t\t|\t*  "
+				"4、计算某天距今天的天数。\t\t|\n\t\t|\t\t\t\t\t\t|\n\t\t|\t*  "
+				"5、查询距今天相应天数的日期。\t|\n\t\t|\t\t\t\t\t\t|\n\t\t|\t*  "
+				"6、计算任意两天之间的天数差。        |\n\t\t|\t\t\t\t\t\t|\n\t\t|\t*  "
+				"7、显示二十四节气。\t\t\t|\n\t\t|\t\t\t\t\t\t|\n\t\t|\t*  "
+				"8、显示节日。\t\t\t|\n");
+		printf("\t\t-------------------------------------------------\n");
+		printf("\t\t您的输入：");
+		scanf("%d",&mode);
+		system("cls");
+		

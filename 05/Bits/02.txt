@@ -1,0 +1,63 @@
+/*
+ * app.c文件中部分代码
+ */
+#include "operator_m_proc.h"
+#include "book_info_proc.h"
+#include "provider_info_proc.h"
+#include "book_kinds_proc.h"
+#include "store_info_proc.h"
+#include "desk_info_proc.h"
+#include "book_input_proc.h"
+#include "book_input_back_proc.h"
+#include "book_adjust_proc.h"
+#include "book_sale_proc.h"
+#include "book_sale_back_proc.h"
+#include "book_input_back_query_proc.h"
+#include "book_sale_back_query_proc.h"
+#include "book_input_query_proc.h"
+#include "book_sale_query_proc.h"
+#include "book_stock_query_proc.h"
+#define LEVEL_COLUMN 2
+#define NAME_COLUMN 0
+BOOL CALLBACK LoginDlgProc (HWND, UINT, WPARAM, LPARAM) ;
+BOOL CALLBACK ClientDlgProc (HWND, UINT, WPARAM, LPARAM) ;
+BOOL CALLBACK ConfigDlgProc (HWND hDlg, UINT message,WPARAM wParam, LPARAM lParam);
+int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR szCmdLine, int iCmdShow)
+{	
+		MSG msg;  
+		char host[VALUE_LENTH_MAX];
+		char userName[VALUE_LENTH_MAX];
+		char password[VALUE_LENTH_MAX];
+		char dbName[VALUE_LENTH_MAX];
+		FILE *init;
+		init = fopen("Init.txt","r");			
+		if(init==NULL) 							//如果文件Init.txt不存在
+		{
+			init = fopen("Init.txt","w");		//创建文件Init.txt
+	fprintf(init,"host:\t%s\nusername:\t%s\npassword:\t%s\ndatabase:\t%s","set","se
+t","set","set");									//向文件中写入数据
+			fclose(init);							//关闭文件Init.txt
+			MessageBoxEx(NULL,TEXT("请检查配置文件"),"查找配置文件失败
+",MB_ICONERROR|MB_TOPMOST,0);
+			PostQuitMessage (0) ;
+		}
+	fscanf(init,"host:\t%s\nusername:\t%s\npassword:\t%s\ndatabase:\t%s",host,userName,
+password,dbName);									//从文件中读取数据
+		fclose(init);
+		mysql_init(&mysql);
+        //如果mysql数据库的配置信息和文件中的数据不匹配，弹出错误信息
+		if(!mysql_real_connect(&mysql,host,userName,password,dbName,0,NULL,0))
+		{
+			MessageBox(NULL,TEXT("数据库连接失败,请重新设定配置文件参数"),"错误",MB_ICONERROR);
+			return 0;
+		}
+		/*保留进程句柄*/
+		g_hInstance = hInstance;
+	    DialogBox (hInstance, MAKEINTRESOURCE(ID_DIG_LOGIN), NULL, LoginDlgProc) ;
+		while (GetMessage (&msg, NULL, 0, 0))
+		{
+			 TranslateMessage (&msg) ;
+			DispatchMessage (&msg) ;	  
+        }
+		return msg.wParam ;
+}

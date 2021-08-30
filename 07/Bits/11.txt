@@ -1,0 +1,93 @@
+/**
+*  员工信息添加
+*/
+void addemp()
+{
+    FILE *fp;               							//声明一个文件型指针
+    EMP *emp1;             								//声明一个结构型指针
+    int i=0;
+    char choice='y';
+    
+    if((fp=fopen("employee.dat","ab"))==NULL)       //判断信息文件中是否有信息
+    {
+        printf("打开文件employee.dat出错！\n");
+        getch();
+        return;                                         
+    }     
+    
+    do{
+         i++;
+         emp1=(EMP *)malloc(sizeof(EMP));       		//申请一段内存
+         if(emp1==NULL)                             	//判断内存是否分配成功
+         {
+             printf("内存分配失败，按任意键退出！\n");
+             getch();
+             return;              
+         }
+         printf("请输入第%d个员工的信息，\n",i);
+         bound('_',30);
+         printf("工号：");
+         scanf("%d",&emp1->num);
+         
+         printf("职务：");
+         scanf("%s",&emp1->duty);
+         
+         printf("姓名：");
+         scanf("%s",&emp1->name);
+         
+         printf("性别：");
+         scanf("%s",&emp1->sex);
+         
+         printf("年龄：");
+         scanf("%d",&emp1->age);
+         
+         printf("文化程度：");
+         scanf("%s",&emp1->edu);
+         
+         printf("工资：");
+         scanf("%d",&emp1->salary);
+         
+         printf("办公电话：");
+         scanf("%s",&emp1->tel_office);
+         
+         printf("家庭电话：");
+         scanf("%s",&emp1->tel_home);
+         
+         printf("移动电话：");
+         scanf("%s",&emp1->mobile);
+         
+         printf("QQ:");
+         scanf("%s",&emp1->qq);
+         
+         printf("地址：");
+         scanf("%s",&emp1->address);
+         
+         emp1->next=NULL;
+         if(emp_first==NULL)            			//判断链表头指针是否为空
+         {
+             emp_first=emp1;
+             emp_end=emp1;                   
+         }else {
+             emp_end->next=emp1;
+             emp_end=emp1;      
+         }
+         
+         fwrite(emp_end,sizeof(EMP),1,fp);  	//对数据流添加数据项
+         
+         gfirst=0;
+         printf("\n");
+         bound('_',30);
+         printf("\n是否继续输入?(y/n)");
+         fflush(stdin);                     		//清除缓冲区
+         choice=getch();
+         
+         if(toupper(choice)!='Y')           		//把小写字母转换成大写字母
+         {
+             fclose(fp);                    		//关闭文件流
+             printf("\n输入完毕，按任意键返回\n");
+             getch();
+             return;                        
+         }
+         system("cls");      
+    }while(1);
+} 

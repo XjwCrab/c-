@@ -1,0 +1,61 @@
+/**
+ * 首次使用，进行用户信息初始化
+ */
+void checkfirst()
+{
+    FILE *fp,*fp1;                              	//声明文件型指针
+    char pwd[9],pwd1[9],pwd2[9],pwd3[9],ch;
+    int i;
+    char strt='8';    
+    
+    if((fp=fopen("config.bat","rb"))==NULL)     //判断系统密码文件是否为空
+    {
+        printf("\n新系统，请进行相应的初始化操作！\n");
+        bound('_',50);
+        getch();
+        
+        do{
+            printf("\n设置密码，请不要超过8位：");
+            for(i=0;i<8&&((pwd[i]=getch())!=13);i++)
+            {
+                putch('*');
+            }
+            printf("\n再确认一次密码：");
+            for(i=0;i<8&&((pwd1[i]=getch())!=13);i++) 
+            {
+                putch('*');    
+            }
+                
+            pwd[i]='\0';  
+            pwd1[i]='\0';
+            
+            if(strcmp(pwd,pwd1)!=0)             //判断两次新密码是否一致
+            {
+                printf("\n两次密码输入不一致，请重新输入！\n\n");
+            }
+            else break;
+            
+        }while(1);
+        
+        if((fp1=fopen("config.bat","wb"))==NULL)
+        {
+            printf("\n系统创建失败，请按任意键退出！");
+            getch();
+            exit(1);                                        
+        }
+        
+        i=0;
+        while(pwd[i])
+        {
+                 
+            pwd2[i]=(pwd[i]^ strt);        
+            putw(pwd2[i],fp1);                  //将数组元素送入文件流中
+            i++;             
+        }
+        
+        fclose(fp1);                            //关闭文件流
+        printf("\n\n系统初始化成功，按任意键退出后，再重新进入！\n");
+        getch();
+        exit(1);
+        
+    }

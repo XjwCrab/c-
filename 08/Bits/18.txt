@@ -1,0 +1,26 @@
+/**
+*  学生总数统计
+*/
+void total()
+{
+	FILE *fp;
+  	int m=0;
+  	if((fp=fopen("data.txt","r+"))==NULL)
+     {
+	 	printf("文件不存在！\n");
+		return;
+	}
+  	while(!feof(fp))
+	  	if(fread(&stu[m],LEN,1,fp)==1)
+	  	{
+		  	m++;								//统计记录个数，即学生人数
+	  	}
+  	if(m==0) 
+  	{
+  		printf("文件无内容!\n");
+  		fclose(fp);
+  		return;
+  	}
+  	printf("这个班级一共有 %d 名学生!\n",m);	//将统计的数量输出
+  	fclose(fp);
+}

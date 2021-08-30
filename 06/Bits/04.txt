@@ -1,0 +1,16 @@
+/**
+ * 函数声明
+ */
+void menu();
+score *creat(void);						//录入学生消费信息
+score *load(score *head);					//读取学生消费信息
+score *search(score *head); 				//查询学习消费信息
+score *del(score *head);					//删除学习消费信息
+score *add(score *head,score *stu);	//添加学生消费信息
+void print(score *head);					//显示所有记录
+save(score *p1);							//保存记录到文件
+
+/**
+ * 全局变量
+ */
+int n,k;									//n,k为全局变量，本程序中的函数均可以使用

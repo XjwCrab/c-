@@ -1,0 +1,59 @@
+/**
+ * 控制键盘按键
+ */
+void keyboardControl()
+{
+	status=R;       						//初始蛇向右移动
+    while(1)
+    {
+		scoreandtips();					//游戏界面右侧的得分和小提示
+        //GetAsyncKeyState函数用来判断函数调用时指定虚拟键的状态
+        if(GetAsyncKeyState(VK_UP) && status!=D)            	
+        {
+            status=U;           			//如果蛇不是向下前进的时候，按上键，执行向上前进操作
+        }
+        //如果蛇不是向上前进的时候，按下键，执行向下前进操作
+        else if(GetAsyncKeyState(VK_DOWN) && status!=U)     	
+        {
+            status=D;
+        }
+        //如果蛇不是向右前进的时候，按左键，执行向左前进
+        else if(GetAsyncKeyState(VK_LEFT)&& status!=R)      	
+        {
+            status=L;
+        }
+        //如果蛇不是向左前进的时候，按右键，执行向右前进
+        else if(GetAsyncKeyState(VK_RIGHT)&& status!=L)     	
+        {
+            status=R;
+        }
+        if(GetAsyncKeyState(VK_SPACE))			//按暂停键，执行Sleep()函数暂停进程
+        {
+            while(1)
+			{
+               //sleep()函数，头文件#include <unistd.h>  另进程暂停，知道达到里面设定的参数的时间。
+				Sleep(300);	 	
+				if(GetAsyncKeyState(VK_SPACE))   //按空格键暂停
+				{
+					break;
+				}
+
+			}
+        }
+        else if(GetAsyncKeyState(VK_ESCAPE))
+        {
+            endgamestatus=3;    					//按esc键，直接到结束界面
+            break;
+        }
+        else if(GetAsyncKeyState(VK_F1))    	//按F1键，加速
+        {
+            speedup();
+        }
+        else if(GetAsyncKeyState(VK_F2))    	//按F2键，减速
+        {
+            speeddown();			//调用减速函数
+        }
+        Sleep(sleeptime);
+        snakemove();
+    }
+}

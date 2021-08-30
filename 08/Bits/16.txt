@@ -1,0 +1,34 @@
+         printf("现在请输入要插入的学生信息.\n");
+         printf("number:");
+	  	scanf("%d",&stu[i+1].num);
+	  	for(k=0;k<m;k++)
+	    	if(stu[k].num==stu[m].num)
+	    	{
+	    		printf("number已经存在，按任意键继续!");
+	    		getch();
+	    		fclose(fp);                       //关闭文件
+	    		return;
+	    	}
+	  	printf("name:");
+	  	scanf("%s",stu[i+1].name);
+         printf("elective:");
+	   	scanf("%lf",&stu[i+1].elec);
+         printf("experiment:");
+	  	scanf("%lf",&stu[i+1].expe);
+         printf("required course:");
+	  	scanf("%lf",&stu[i+1].requ);
+	 	 stu[i+1].sum=stu[i+1].elec+stu[i+1].expe+stu[i+1].requ;
+	 	 printf("插入成功！按任意键返回主界面！"); 
+	 	 if((fp=fopen("data.txt","wb"))==NULL)  //如果文件不存在，则给出提示
+    	{ 
+	 		printf("不能打开！\n");
+			return;
+		}
+	  	for(k=0;k<=m;k++)
+	  	if(fwrite(&stu[k] ,LEN,1,fp)!=1)	     //将修改后的记录写入磁盘文件中
+       	{ 
+		   printf("不能保存!"); 
+		   getch(); 
+		}
+  	fclose(fp);
+}

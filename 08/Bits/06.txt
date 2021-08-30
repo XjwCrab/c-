@@ -1,0 +1,25 @@
+/**
+*  录入学生信息
+*/
+void in()
+{
+	int i,m=0;									//m是记录的条数
+  	char ch[2];
+  	FILE *fp;									//定义文件指针
+  	if((fp=fopen("data.txt","a+"))==NULL)	//打开指定文件
+  	{
+	  	printf("文件不存在！\n");
+	  	return;
+  	}
+  	while(!feof(fp))
+  	{
+	  	if(fread(&stu[m] ,LEN,1,fp)==1)
+	  	{
+		  	m++;								//统计当前记录条数
+	  	}
+  	}
+  	fclose(fp);
+  	if(m==0)
+  	{
+	  	printf("文件中没有记录!\n");
+  	}

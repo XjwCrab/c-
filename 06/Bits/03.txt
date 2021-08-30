@@ -1,0 +1,5 @@
+/**
+ * ∫Í ∂® “Â
+ */
+#define LEN sizeof(struct scorenode)
+#define DEBUG

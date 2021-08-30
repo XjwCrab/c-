@@ -1,0 +1,15 @@
+/**
+* 按照员工QQ号查询员工信息
+*/
+EMP *findqq(char *name)
+{
+    EMP *emp1;
+    
+    emp1=emp_first;
+    while(emp1)
+    {
+        if(strcmp(name,emp1->qq)==0)  return emp1;
+        emp1=emp1->next;           
+    }  
+    return NULL;  
+}

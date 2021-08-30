@@ -1,0 +1,15 @@
+/**
+*  自定义删除函数
+*/
+void del()  
+{	
+	FILE *fp;
+  	int snum,i,j,m=0;
+  	char ch[2];
+  	if((fp=fopen("data.txt","r+"))==NULL)		//data.txt文件不存在 
+    { 
+		printf("文件不存在！\n");
+		return;
+	}
+  	while(!feof(fp))  if(fread(&stu[m],LEN,1,fp)==1) m++;
+  	fclose(fp);

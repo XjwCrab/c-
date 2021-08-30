@@ -1,0 +1,58 @@
+/**
+*  自定义修改函数
+*/
+void modify()
+{
+  	FILE *fp;
+  	struct student t;
+  	int i=0,j=0,m=0,snum;
+  	if((fp=fopen("data.txt","r+"))==NULL)
+    {
+		printf("文件不存在！\n");
+        return;
+  	}
+  	while(!feof(fp))
+  		if(fread(&stu[m] ,LEN,1,fp)==1)
+			m++;
+  	if(m==0)
+  	{
+	  	printf("文件中没有记录！\n");
+		fclose(fp);
+	  	return;
+  	}
+  	show();
+  	printf("请输入要修改的学生number： ");
+  	scanf("%d",&snum);
+  	for(i=0;i<m;i++)
+	  	if(snum==stu[i].num)						//检索记录中是否有要修改的信息
+		  {
+	  		printf("找到了这名学生,可以修改他的信息!\n");
+	  		printf("name:");
+	  		scanf("%s",stu[i].name);			//输入名字
+       	   	printf("elective:");
+	  		scanf("%lf",&stu[i].elec);			//输入选修课成绩
+      	    printf("experiment:");
+	  		scanf("%lf",&stu[i].expe);			//输入实验课成绩
+      	    printf("required course:");
+	  		scanf("%lf",&stu[i].requ);			//输入必修课成绩
+	  		printf("修改成功!");
+	  		stu[i].sum=stu[i].elec+stu[i].expe+stu[i].requ;
+			if((fp=fopen("data.txt","wb"))==NULL)
+     		{
+		 		printf("不能打开文件\n");
+			 	return;
+			}
+	  		for(j=0;j<m;j++)						//将新修改的信息写入指定的磁盘文件中
+	  		if(fwrite(&stu[j] ,LEN,1,fp)!=1)
+       		{
+		   		printf("不能保存文件!");
+		   		getch();
+			}
+	 		fclose(fp);
+	 		break;
+  		}
+  		if(i==m)
+  		{
+		  	printf("没有找到这名学生!\n");		//未找到要查找的信息
+  		}
+}

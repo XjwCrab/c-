@@ -1,0 +1,15 @@
+/**
+ *  减速，按F2，会自动减速
+ */
+void speeddown()
+{
+	if(sleeptime<350)							//如果时间间隔小于350
+	{
+		sleeptime=sleeptime+30;				//时间间隔加上30
+		add=add-2;								//每吃一次食物的得分减2
+		if(sleeptime==350)						
+		{
+			add=1;								//保证最低分为1
+		}
+    }
+}

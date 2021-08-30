@@ -1,0 +1,9 @@
+	//判断此农历月有几天，如有30天，为“大月”；有29天，则为“小月”
+	lunar_ndays=Yueshou[hang*15+lie+1]-Yueshou[hang*15+lie];  //农历月总天数
+	if (lunar_ndays==31)				                               //农历月大月30天,小月29天
+	{
+		daxiao="大";
+	}else if (lunar_ndays==30)
+	{
+		daxiao="小";
+	}

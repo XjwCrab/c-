@@ -1,0 +1,40 @@
+/*
+*   游戏说明
+*/
+void explation()
+{
+	int i,j = 1;
+    system("cls");
+    color(13);
+    gotoxy(44,3);
+    printf("游戏说明");
+    color(2);
+    for (i = 6; i <= 22; i++)   			//输出上下边框===
+	{
+		for (j = 20; j <= 75; j++)  	//输出左右边框||
+		{
+			gotoxy(j, i);
+			if (i == 6 || i == 22) printf("=");
+			else if (j == 20 || j == 75) printf("||");
+		}
+	}
+    color(3);
+    gotoxy(30,8);
+    printf("tip1: 不能穿墙，不能咬到自己");
+    color(10);
+    gotoxy(30,11);
+    printf("tip2: 用↑.↓.←.→分别控制蛇的移动");
+    color(14);
+    gotoxy(30,14);
+    printf("tip3: F1 为加速，F2 为减速");
+    color(11);
+    gotoxy(30,17);
+    printf("tip4: 按空格键暂停游戏，再按空格键继续");
+    color(4);
+    gotoxy(30,20);
+    printf("tip5: ESC ：退出游戏");
+    getch();                //按任意键返回主界面
+    system("cls");
+    printsnake();
+    welcometogame();
+}

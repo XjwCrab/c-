@@ -1,0 +1,5 @@
+/*******定 义 头 文 件*******/
+#include <stdio.h>		//标准输入输出函数库（printf、scanf）
+#include <conio.h>  	//为了读取方向键
+#include <windows.h>	//控制dos界面（获取控制台上坐标位置、设置字体颜色）
+#include <math.h>   	//pow函数

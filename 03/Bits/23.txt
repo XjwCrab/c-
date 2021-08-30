@@ -1,0 +1,10 @@
+/**
+ * 储存最高分进文件
+ */
+void File_in()
+{
+	FILE *fp;
+	fp = fopen("save.txt", "w+");       //以读写的方式建立一个名为save.txt的文件
+	fprintf(fp, "%d", score);           //把分数写进文件中
+	fclose(fp);                          //关闭文件
+}

@@ -1,0 +1,11 @@
+/**
+ * 修改工资的函数
+ */
+int modi_salary(int salary)
+{
+    int newsalary;
+    printf("原来的工资数为：%d",salary);
+    printf("新的工资数：");
+    scanf("%d",&newsalary);
+    return(newsalary);
+}

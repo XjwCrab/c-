@@ -1,0 +1,34 @@
+/**
+ *  游戏界面右侧的得分和小提示
+ */
+void scoreandtips()
+{
+	File_out();									//调用File_out()，读取文件save.txt中的内容
+	gotoxy(64,4);									//确定打印输出的位置
+	color(11);										//设置颜色
+	printf("☆最高记录☆：%d",HighScore);		//打印游戏最高分
+	gotoxy(64,8);
+	color(14);
+	printf("得分：%d  ",score);
+	color(13);
+	gotoxy(73,11);
+	printf("小 提 示");
+	gotoxy(60,13);
+	color(6);
+	printf("╬ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ╬");	//打印边框
+	gotoxy(60,25);
+	printf("╬ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅ ╬");
+	color(3);
+	gotoxy(64,14);
+	printf("每个食物得分：%d分",add);
+	gotoxy(64,16);
+	printf("不能撞墙，不能咬到自己");
+	gotoxy(64,18);
+	printf("用↑ ↓ ← →分别控制蛇的移动");
+	gotoxy(64,20);
+	printf("F1 为加速，F2 为减速");
+	gotoxy(64,22);
+	printf("space：暂停游戏");
+	gotoxy(64,24);
+    printf("ESC ：退出游戏");
+}

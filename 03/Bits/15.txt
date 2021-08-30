@@ -1,0 +1,17 @@
+/**
+ * 判断是否咬到了自己
+ */
+int biteself()
+{
+    snake *self;            	//定义self为蛇身上的一个节点
+    self=head->next;        	//self是蛇头之外的蛇身上的节点
+    while(self!=NULL)
+    {
+        if(self->x==head->x && self->y==head->y)    //如果self和蛇头上的节点重合
+        {
+            return 1;       	//返回1，蛇咬到自己，游戏失败
+        }
+        self=self->next;		//循环蛇身上的每一个节点
+    }
+    return 0;
+}

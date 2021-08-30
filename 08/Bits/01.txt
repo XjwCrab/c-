@@ -1,0 +1,5 @@
+01	#include<stdio.h>
+02	#include<stdlib.h>
+03	#include<conio.h>
+04	#include<dos.h>
+05	#include<string.h>

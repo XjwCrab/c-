@@ -1,0 +1,31 @@
+/**
+ * 创建地图
+ */
+void createMap()
+{
+    int i,j;
+    for(i=0;i<58;i+=2)			//打印上下边框
+    {
+        gotoxy(i,0);
+		color(5);			//深紫色的边框
+        printf("□");
+        gotoxy(i,26);
+        printf("□");
+    }
+    for(i=1;i<26;i++)			//打印左右边框
+    {
+        gotoxy(0,i);
+        printf("□");
+        gotoxy(56,i);
+        printf("□");
+    }
+	for(i = 2;i<56;i+=2)		//打印中间网格
+	{
+		for(j = 1;j<26;j++)
+		{
+			gotoxy(i,j);
+			color(3);
+			printf("■\n\n");
+		}
+	}
+}

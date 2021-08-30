@@ -1,0 +1,43 @@
+/**
+ * 根据数字修改颜色
+ */
+int TextColors(int number)
+{
+	switch (number)         		//格子中出现2n（0<n<12）的数字显示为不同颜色
+	{   //数字1~15代表不同的文字颜色，超过15表示文字背景色
+		case 2:						//数字2
+			return color(12);		//显示色号为12的颜色，红色
+			break;
+		case 4: 					//数字4
+			return color(11); 		//显示色号为11的颜色，亮蓝色
+			break;
+		case 8:
+			return color(10);
+			break;
+		case 16:
+			return color(14);
+			break;
+		case 32:
+			return color(6);
+			break;
+		case 64:
+			return color(5);
+			break;
+		case 128:
+			return color(4);
+			break;
+		case 256:
+			return color(3);
+			break;
+		case 512:
+			return color(2);
+			break;
+		case 1024:
+			return color(9);
+			break;
+		case 2048:
+			return color(7);
+			break;
+	}
+	return 0;
+}

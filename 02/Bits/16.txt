@@ -1,0 +1,19 @@
+/**
+ * 返回棋盘最大数
+ */
+int BOXmax()
+{
+	int max = BOX[0][0];       	 	//初始化BOX数组
+	int i,j;
+	for(i = 0;i < 4;i ++)      		//遍历整个数组
+	{
+		for(j = 0;j < 4;j ++)
+		{
+			if(BOX[i][j] > max) 		//如果数组中有数值大于max的值
+			{
+				max = BOX[i][j];    //将数组中的值赋值给max，这样找出数组中的最大数
+			}
+		}
+}
+	return max;                     //返回max的值。也就是当前棋盘中的最大值
+}

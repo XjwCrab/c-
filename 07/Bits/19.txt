@@ -1,0 +1,106 @@
+/**
+ * 修改员工信息
+ */
+void modifyemp()
+{
+     EMP *emp1;
+     char name[10],*newcontent;
+     int choice;
+     
+     printf("\n请输入您要修改的员工的姓名:");
+     scanf("%s",&name);
+     
+     emp1=findname(name);
+     displayemp(emp1,"姓名",name);
+     
+     if(emp1)
+     {
+     	 printf("\n 请输入你要修改的内容选项！\n");
+         bound('_',40);
+         printf("1.修改职务                2.修改年龄\n");
+         printf("3.修改文化程度            4.修改工资\n");
+         printf("5.修改办公室电话          6.修改家庭电话\n");
+         printf("7.修改移动电话            8.修改QQ号码 \n");
+         printf("9.修改住址                0.返回\n  ");
+         bound('_',40);
+         
+         do{
+             fflush(stdin);                                //清除缓冲区
+             choice=getchar();
+             switch(choice)                               //操作选择函数
+             {
+                 case '1':
+                      newcontent=modi_field("职务",emp1->duty,10);  //调用修改函数修改基本信息
+                      if(newcontent!=NULL)
+                      {
+                          strcpy(emp1->duty,newcontent);
+                          free(newcontent);                    
+                      } 
+                      break;
+                 case '2':
+                      emp1->age=modi_age(emp1->age);          //修改员工年龄
+                      break;
+                  case '3':
+                      newcontent=modi_field("文化程度",emp1->edu,10); //修改文化程度
+                      if(newcontent!=NULL)
+                      {
+                          strcpy(emp1->edu,newcontent);             //获取新信息内容
+                          free(newcontent);                    
+                      } 
+                      break;
+                  case '4':
+                      emp1->salary=modi_salary(emp1->salary);    //修改工资
+                      break;
+                 case '5':
+                      newcontent=modi_field("办公室电话",emp1->tel_office,13); 
+                      if(newcontent!=NULL)
+                      {
+                          strcpy(emp1->tel_office,newcontent);
+                          free(newcontent);                    
+                      } 
+                      break;
+                 case '6':
+                      newcontent=modi_field("家庭电话",emp1->tel_home,13); //修改家庭电话
+                      if(newcontent!=NULL)
+                      {
+                          strcpy(emp1->tel_home,newcontent);
+                          free(newcontent);                    
+                      } 
+                      break;
+                  case '7':
+                      newcontent=modi_field("移动电话",emp1->mobile,12);  //修改移动电话
+
+                      if(newcontent!=NULL)
+                      {
+                          strcpy(emp1->mobile,newcontent);
+                          free(newcontent);                    
+                      } 
+                      break;
+                  case '8':
+                      newcontent=modi_field("QQ号码",emp1->qq,10);  //修改QQ号码
+                      if(newcontent==NULL)
+                      {
+                          strcpy(emp1->qq,newcontent);
+                          free(newcontent);                    
+                      } 
+                      break;  
+                  case '9':
+                      newcontent=modi_field("住址",emp1->address,30); //修改住址
+                      if(newcontent!=NULL)
+                      {
+                          strcpy(emp1->address,newcontent);
+                          free(newcontent);                       //释放内存空间
+                      } 
+                      break;     
+                  case '0':
+                      return;             
+             }             
+         }while(choice<'0' || choice>'9');
+         
+         gsave=1;
+         savedata();                                         	//保存修改的数据信息
+         printf("\n修改完毕，按任意键退出！\n");
+         getch();
+     }  
+     return;   
+} 

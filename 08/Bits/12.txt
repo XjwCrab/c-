@@ -1,0 +1,28 @@
+		if(strcmp(ch,"Y")==0||strcmp(ch,"y")==0)	 //判断是否要进行删除
+      		{
+	  			for(j=i;j<m;j++)
+	      		stu[j]=stu[j+1];						//将后一个记录移到前一个记录的位置
+	       		m--;									//记录的总个数减1*/
+      			if((fp=fopen("data.txt","wb"))==NULL)
+     			{ 
+				 	printf("文件不存在\n");
+					return;
+				}
+  				for(j=0;j<m;j++)						//将更改后的记录重新写入指定的磁盘文件中
+      			if(fwrite(&stu[j] ,LEN,1,fp)!=1)
+       			{ 
+				   	printf("can not save!\n");
+      				getch();
+				}
+  				fclose(fp);
+  				printf("删除成功!\n");
+      		}else{
+      			printf("找到了记录，选择不删除！"); 
+	  		}
+  				break;
+  		}
+		else
+      	{
+		  	printf("没有找到这名学生!\n");			//未找到要查找的信息
+  		}
+}

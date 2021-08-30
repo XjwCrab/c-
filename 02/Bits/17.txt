@@ -1,0 +1,36 @@
+/**
+ * 判断是否胜利
+ */
+int Gamewin()
+{
+	int flag = 0;
+	if(BOXmax() == 2048)            //如果棋盘中的最大值为2048，达到目标，则游戏胜利
+	{
+		system("cls");
+		gotoxy(1,6);
+		color(2);   				//暗绿色
+        //输出胜利win的字符画
+    	printf("     ■             ■             ■       ■■■■■       ■          ■  \n");  
+    	gotoxy(1,7);
+    	printf("      ■           ■■           ■            ■           ■ ■       ■  \n");
+    	gotoxy(1,8);
+        printf("       ■         ■  ■         ■             ■           ■  ■      ■  \n");
+        gotoxy(1,9);
+		printf("        ■       ■    ■       ■              ■           ■   ■     ■   \n");
+		gotoxy(1,10);
+        printf("         ■     ■      ■     ■               ■           ■    ■    ■  \n");
+        gotoxy(1,11);
+        printf("          ■   ■        ■   ■                ■           ■     ■   ■ \n");
+        gotoxy(1,12);
+		printf("           ■ ■          ■ ■                 ■           ■      ■  ■    \n");
+		gotoxy(1,13);
+		printf("            ■■          ■■                  ■           ■       ■ ■  \n");
+		gotoxy(1,14);
+		printf("             ■            ■               ■■■■■       ■          ■   \n");
+		gotoxy(35,17);
+		color(13);
+		printf("胜利啦，你真棒！！！");
+		flag = 1;
+	}
+	 return flag;                //flag的值默认是0，返回1则表示游戏成功
+}

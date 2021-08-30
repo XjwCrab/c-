@@ -1,0 +1,38 @@
+/**
+ *边框下面的分支选项
+ */
+void choose()
+{
+	int n;
+	gotoxy(25,23);
+	color(12);
+	printf("我要重新玩一局-------1");
+	gotoxy(52,23);
+	printf("不玩了，退出吧-------2");
+	gotoxy(46,25);
+	color(11);
+	printf("选择：");
+	scanf("%d", &n);
+    switch (n)
+    {
+		case 1:
+			system("cls");         //清屏
+			score=0;             	//分数归零
+			sleeptime=200;			//设定初始速度
+			add = 10;				//使add设定为初值，吃一个食物得分10，然后累加
+			printsnake();          //返回欢迎界面
+			welcometogame();
+			break;
+		case 2:
+			exit(0);               //退出游戏
+			break;
+		default:					//输入1或2以外的数字
+			gotoxy(35,27);
+			color(12);
+			printf("※※您的输入有误，请重新输入※※");
+			system("pause >nul");	//按任意键
+			endgame();
+			choose();				//边框下面的分支选项
+			break;
+	}
+}

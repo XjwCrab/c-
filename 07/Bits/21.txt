@@ -1,0 +1,11 @@
+/**
+ * 修改年龄的函数
+ */
+int modi_age(int age)
+{
+	int newage;
+    printf("原来的年龄为：%d",age);
+    printf("新的年龄：");
+    scanf("%d",&newage);
+    return(newage);
+}

@@ -1,0 +1,10 @@
+/**
+ * 设置蛇撞墙的情况
+ */
+void cantcrosswall()
+{
+    if(head->x==0 || head->x==56 ||head->y==0 || head->y==26) 	//如果蛇头碰到了墙壁
+    {
+        endgamestatus=1;        	//返回第一种情况
+    }
+}

@@ -1,0 +1,41 @@
+/**
+ * 打印出一个月的月历
+ */
+void ShowCalendar(int year,int month,int day)
+{
+	int dM0=Jizhun(year,month,1);		//公历月首天数
+	int jd_day=dM0;						//用以查询公历月首所在农历月份
+	int base_days=0;					//基准日
+	base_days=Jizhun(year,month,day);
+	int dw0=(dM0+142113)%7;				//月首星期
+	int idw=dw0;						//idw用于标记星期，用于第一行填充
+	int dMn=GetDaysOfMonth(year,month,false,false);//本月总天数
+	int hang=0,lie=0;					//行与列
+	int Lyear=0,Lmonth=0,Lday=0;		//农历年、月、日
+	int nday0=1,nday1=1;				//nday0为公历,nday1为农历
+	int lunar_ndays=0;					//农历月总天数
+	char *leap="";						//闰月
+	char *daxiao="";					//大月或小月
+	int dM0_lunar=0,dM_lunar=0;			//月首的农历
+	int cal_item=0;						//格子计数,从0开始且小于7
+	bool isfirstline=true;				//标记第一行输出
+	bool fillblanks=true;				//是否填充空格
+	bool islunarcal=false;				//是否为农历计算
+	double jq1,jq2;						//用于存放本月节气时间(此历中每个公历月有两个节气)
+	int Lmonth_index=0;					//农历月序
+	int index_jieqi=0;					//节气序号
+	LONGTIME lt;						//时间结构体
+	hang=year-start_year;				//当前年份所处数据表中的行号,从0开始
+	lie=month-1;						//考虑到查询的范围,所以月份减1为初始查询列号,农历月号与公历月号最多相差2
+
+	//查询公历月首所在的农历月
+	for (lie;lie<15;lie++)				//注意数据一行有15列
+	{
+
+		if ((Yueshou[hang*15+lie-1]<=dM0)&&(Yueshou[hang*15+lie]>dM0))		//查找当前公历月首所在农历月
+		{
+			break;
+		}
+	}
+	lie--;								//减掉for循环多加的1
+	

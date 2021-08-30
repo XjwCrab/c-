@@ -1,0 +1,13 @@
+	//开始打印日历
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+	SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE|FOREGROUND_RED);   	//更改文字颜色，为粉色
+	printf("\r\n\t\t公历  %d年%d月  %s%s\r\n\r\n",year,month,Xingqi[(base_days+142113)%7],leap);
+	SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+	SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);   	//更改文字颜色，为红色
+	printf("  周日\t");
+	SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+	printf("  周一\t  周二\t  周三\t  周四\t  周五\t");
+	SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);   	//更改文字颜色，为红色
+	printf("  周六\r\n");
+	SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+	printf("________________________________________________________\r\n");

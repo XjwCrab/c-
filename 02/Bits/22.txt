@@ -1,0 +1,39 @@
+    while(1) {
+        while (kbhit())            			//kbhit()检查当前是否有键盘输入，有返回1，否则返回0
+        {
+         //如果按下的按键不是在keyboardControl()方法中定义的，会没有反应，一直到按下定义的按键为止
+            if(!keyboardControl(getch()))  
+            {
+				continue;
+			}
+            drawTheGameBox();       		//绘制棋盘
+            for(i = 0; i < 4; i ++)          //循环整个4×4的棋盘
+			{
+                for(j = 0; j < 4; j ++)
+				{
+                    if(BOX[i][j] == 0)       //如果棋盘中有空位，则可一直进行按键
+                    {
+						continue;
+					}
+					gotoxy(15 + j * 10 + 5, 2 + i * 5 + 3); //合并后的数出现的位置
+                    int c = BOX[i][j];
+            		TextColors(c);
+            		printf("%d", c);
+                }
+            }
+			do{
+    			a = rand()%4;
+    			b = rand()%4;         //获得随机位置
+			}while(BOX[a][b]!=0);
+    		if(rand() % 4 == 0)       //2或4随机出现在空格处(进行方向操作合并之后，在空白处出现)
+			{
+				BOX[a][b] = 4;        //随机位置上设置为4
+    		} else {
+				BOX[a][b] = 2;        //随机位置上设置为2
+    		}
+    		step++;                 	  //进行计步
+			gotoxy(15 +  b * 10 + 5, 2 + a * 5 + 3);     //随机出现的2或4
+			int c = BOX[a][b];
+		    TextColors(c);
+            printf("%d", c);   
+	    }

@@ -1,0 +1,29 @@
+/**
+*  主菜单列表
+*/
+void menu()
+{
+    char choice;
+    system("cls");
+    do{
+    	printf("\n\t\t\t\t 企业员工管理系统\n\n");
+        printf("\t\t\t-------------------------------------\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t1、输入员工信息\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t2、查询员工信息\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t3、显示员工信息\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t4、修改员工信息\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t5、删除员工信息\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t6、统计员工信息\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t7、重置系统密码\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t|  \t0、退出系统\t\t    |\n");
+        printf("\t\t\t|\t\t\t\t    |\n");
+        printf("\t\t\t-------------------------------------\n");
+        printf("\n\t\t\t请选择您需要的操作：");

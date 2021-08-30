@@ -1,0 +1,162 @@
+/**
+ *  控制方向    
+ */
+void snakemove()									//蛇前进,上U,下D,左L,右R
+{
+	snake * nexthead;
+    cantcrosswall();
+    nexthead=(snake*)malloc(sizeof(snake)); 	//为下一步开辟空间
+    if(status==U)
+    {
+        nexthead->x=head->x;        			//向上前进时，x坐标不变，y坐标-1
+        nexthead->y=head->y-1;
+        nexthead->next=head;
+        head=nexthead;
+        q=head;                 					//指针q指向蛇头
+        //如果下一个有食物 下一个位置的坐标和食物的坐标相同
+        if(nexthead->x==food->x && nexthead->y==food->y)	
+        {
+
+            while(q!=NULL)
+            {
+                gotoxy(q->x,q->y);
+				color(14);
+                printf("★");       			//原来食物的位置，从●换成★
+                q=q->next;          			//指针q指向的蛇身的下一位也执行循环里的操作
+
+            }
+            score=score+add;        		//吃了一个食物，在总分上加上食物的分
+			speedup();
+            createfood();           			//创建食物
+        }
+        else
+        {
+            while(q->next->next!=NULL)		//如果没遇到食物
+            {
+                gotoxy(q->x,q->y);
+                color(14);
+                printf("★");           		//蛇正常往前走，输出当前位置的蛇身
+                q=q->next;              		//继续输出整个蛇身
+            }
+            //经过上面的循环，q指向蛇尾，蛇尾的下一位，就是蛇走过去的位置
+            gotoxy(q->next->x,q->next->y);  
+			color(3);
+            printf("■");
+            free(q->next);      				//进行输出■之后，释放指向下一位的指针
+            q->next=NULL;       				//指针下一位指向空
+        }
+    }
+    if(status==D)
+    {
+        nexthead->x=head->x;        		//向下前进时，x坐标不动，y坐标+1
+        nexthead->y=head->y+1;
+        nexthead->next=head;
+        head=nexthead;
+        q=head;
+        if(nexthead->x==food->x && nexthead->y==food->y)  //有食物
+        {
+
+            while(q!=NULL)
+            {
+                gotoxy(q->x,q->y);
+                color(14);
+                printf("★");
+                q=q->next;
+            }
+            score=score+add;
+			speedup();
+            createfood();
+        }
+        else                               //没有食物
+        {
+            while(q->next->next!=NULL)
+            {
+                gotoxy(q->x,q->y);
+                color(14);
+                printf("★");
+                q=q->next;
+            }
+            gotoxy(q->next->x,q->next->y);	//蛇走过的路线变回棋盘原有的图案
+			color(3);		
+            printf("■");
+            free(q->next);			//释放指针
+            q->next=NULL;
+        }
+    }
+    if(status==L)
+    {
+        nexthead->x=head->x-2;        //向左前进时，x坐标向左移动-2，y坐标不动
+        nexthead->y=head->y;
+        nexthead->next=head;
+        head=nexthead;
+        q=head;
+        if(nexthead->x==food->x && nexthead->y==food->y)//有食物
+        {
+            while(q!=NULL)
+            {
+                gotoxy(q->x,q->y);
+                color(14);
+                printf("★");
+                q=q->next;
+            }
+            score=score+add;
+			speedup();
+            createfood();
+        }
+        else                                			//没有食物
+        {
+            while(q->next->next!=NULL)
+            {
+                gotoxy(q->x,q->y);
+                color(14);
+                printf("★");
+                q=q->next;
+            }
+            gotoxy(q->next->x,q->next->y);
+			color(3);
+            printf("■");
+            free(q->next);
+            q->next=NULL;
+        }
+    }
+    if(status==R)
+    {
+        nexthead->x=head->x+2;        				//向右前进时，x坐标向右移动+2，y坐标不动
+        nexthead->y=head->y;
+        nexthead->next=head;
+        head=nexthead;
+        q=head;
+        if(nexthead->x==food->x && nexthead->y==food->y)//有食物
+        {
+            while(q!=NULL)
+            {
+                gotoxy(q->x,q->y);
+                color(14);
+                printf("★");
+                q=q->next;
+            }
+            score=score+add;
+			speedup();
+            createfood();
+        }
+        else                                         	//没有食物
+        {
+            while(q->next->next!=NULL)
+            {
+                gotoxy(q->x,q->y);
+                color(14);
+                printf("★");
+                q=q->next;
+            }
+            gotoxy(q->next->x,q->next->y);
+			color(3);
+            printf("■");
+            free(q->next);
+            q->next=NULL;
+        }
+    }
+    if(biteself()==1)       							//判断是否会咬到自己
+    {
+        endgamestatus=2;
+    }
+}

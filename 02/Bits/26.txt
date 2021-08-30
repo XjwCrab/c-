@@ -1,0 +1,14 @@
+/**
+ * 按键说明
+ */
+void explation()
+{
+	gotoxy(20,22);
+	color(13);
+	printf("①、↑、↓、←、→方向键进行游戏操作！");
+	gotoxy(20, 24);
+	printf("②、ESC键退出游戏");
+	getch();                //按任意键返回欢迎界面
+	system("cls");
+	main();
+}

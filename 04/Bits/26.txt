@@ -1,0 +1,151 @@
+/**
+ * 获得公历节日
+ */
+void Holiday(int month)
+{
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+	switch(month)
+	{
+		case 1:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 1月1日元旦(New Year's Day)\n");
+			printf("\t\t 1月最后一个星期日国际麻风节\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 2:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 2月2日  世界湿地日(World Wetlands Day)\n");
+			printf("\t\t 2月14日 情人节(Valentine's Day)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 3:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 3月3日  全国爱耳日\n");
+			printf("\t\t 3月5日  青年志愿者服务日\n");
+			printf("\t\t 3月8日  国际妇女节(International Women' Day)\n");
+			printf("\t\t 3月9日  保护母亲河日\n");
+            printf("\t\t 3月12日 中国植树节(China Arbor Day)\n");
+            printf("\t\t 3月14日 白色情人节(White Day)\n");
+            printf("\t\t 3月14日 国际警察日(International Policemen' Day)\n");
+            printf("\t\t 3月15日 世界消费者权益日(World Consumer Right Day)\n");
+			printf("\t\t 3月21日 世界森林日(World Forest Day)\n");
+            printf("\t\t 3月21日 世界睡眠日(World Sleep Day)\n");
+            printf("\t\t 3月22日 世界水日(World Water Day)\n");
+            printf("\t\t 3月23日 世界气象日(World Meteorological Day)\n");
+			printf("\t\t 3月24日 世界防治结核病日(World Tuberculosis Day)\n");
+            printf("\t\t 3月最后一个完整周的星期一中小学生安全教育日\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 4:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 4月1日  愚人节(April Fools' Day)\n");
+            printf("\t\t 4月5日  清明节(Tomb-sweeping Day)\n");
+            printf("\t\t 4月7日  世界卫生日(World Health Day)\n");
+            printf("\t\t 4月22日 世界地球日(World Earth Day)\n");
+            printf("\t\t 4月26日 世界知识产权日(World Intellectual PropertyDay)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 5:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 5月1日  国际劳动节(International Labour Day)\n");
+            printf("\t\t 5月3日  世界哮喘日(World Asthma Day)\n");
+            printf("\t\t 5月4日  中国青年节(Chinese Youth Day)\n");
+            printf("\t\t 5月8日  世界红十字日(World Red-Cross Day)\n");
+            printf("\t\t 5月12日 国际护士节(International Nurse Day)\n");
+            printf("\t\t 5月15日 国际家庭日(International Family Day)\n");
+            printf("\t\t 5月17日 世界电信日(World Telecommunications Day)\n");
+            printf("\t\t 5月20日 全国学生营养日\n");
+            printf("\t\t 5月23日 国际牛奶日(International Milk Day)\n");
+            printf("\t\t 5月31日 世界无烟日(World No-Smoking Day)\n");
+            printf("\t\t 5月第二个星期日母亲节(Mother's Day)\n");
+            printf("\t\t 5月第三个星期日全国助残日\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 6:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 6月1日  国际儿童节(International Children's Day)\n");
+            printf("\t\t 6月5日  世界环境日(International Environment Day)\n");
+            printf("\t\t 6月6日  全国爱眼日\n");
+            printf("\t\t 6月17日 世界防治荒漠化和干旱日(World Day to combat desertification)\n");
+            printf("\t\t 6月23日 国际奥林匹克日(International Olympic Day)\n");
+            printf("\t\t 6月25日 全国土地日\n");
+            printf("\t\t 6月26日 国际禁毒日(International Day Against Drug Abuse and Illicit Trafficking)\n");
+            printf("\t\t 6月第三个星期日父亲节(Father's Day)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 7:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 7月1日  中国共产党诞生日(Anniversary of the Founding of the Chinese Communist Party)\n");
+            printf("\t\t 7月1日  国际建筑日(International Architecture Day)\n");
+            printf("\t\t 7月7日  中国人民抗日战争纪念日\n");
+            printf("\t\t 7月11日 世界人口日(World Population Day)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 8:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 8月1日  中国人民解放军建军节(Army Day)\n");
+            printf("\t\t 8月12日 国际青年节(International Youth Day)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 9:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 9月8日  国际扫盲日(International Anti-illiteracy Day)\n");
+            printf("\t\t 9月10日 中国教师节(Teacher's Day)\n");
+            printf("\t\t 9月16日 中国脑健康日\n");
+            printf("\t\t 9月16日 国际臭氧层保护日(International Day for the Preservation of the Ozone Layer)\n");
+            printf("\t\t 9月20日 全国爱牙日\n");
+            printf("\t\t 9月21日 世界停火日(World Cease-fire Day)\n");
+            printf("\t\t 9月27日 世界旅游日(World Tourism Day)\n");
+            printf("\t\t 9月第三个星期二国际和平日(International Peace Day)\n");
+            printf("\t\t 9月第三个星期六全国国防教育日\n");
+            printf("\t\t 9月第四个星期日国际聋人节(International Day of the Deaf)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 10:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n10月1日  中华人民共和国国庆节(National Day)\n");
+            printf("\t\t 10月1日  国际音乐日(International Music Day)\n");
+            printf("\t\t 10月1日  国际老年人日(International Day of Older Persons)\n");
+            printf("\t\t 10月4日  世界动物日(World Animal Day)\n");
+            printf("\t\t 10月5日  世界教师日(World Teachers' Day)（联合国教科文组织确立）\n");
+            printf("\t\t 10月8日  全国高血压日\n");
+            printf("\t\t 10月9日  世界邮政日(World Post Day)\n");
+            printf("\t\t 10月10日 世界精神卫生日(World Mental Health Day)\n");
+            printf("\t\t 10月14日 世界标准日(World Standards Day)\n");
+            printf("\t\t 10月15日 国际盲人节(International Day of the Blind)\n");
+            printf("\t\t 10月15日 世界农村妇女日(World Rural Women's Day)\n");
+            printf("\t\t 10月16日 世界粮食日(World Food Day)\n");
+            printf("\t\t 10月17日 国际消除贫困日(International Day for the Eradication of Poverty)\n");
+            printf("\t\t 10月24日 联合国日(United Nations Day)\n");
+            printf("\t\t 10月24日 世界发展新闻日(World Development Information Day)\n");
+            printf("\t\t 10月28日 中国男性健康日\n");
+            printf("\t\t 10月29日 国际生物多样性日(International Biodiversity Day)\n");
+            printf("\t\t 10月31日 万圣节(Halloween)\n");
+            printf("\t\t 10月的第一个星期一世界住房日(World Habitat Day)\n");
+            printf("\t\t 10月的第二个星斯一加拿大感恩节(Thanksgiving Day)\n");
+            printf("\t\t 10月第二个星期三国际减轻自然灾害日(International Day for Natural Disaster Reduction)\n");
+            printf("\t\t 10月第二个星期四世界爱眼日(World Sight Day)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 11:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 11月8日  中国记者节\n");
+            printf("\t\t 11月9日  消防宣传日\n");
+            printf("\t\t 11月14日 世界糖尿病日(World Diabetes Day)\n");
+            printf("\t\t 11月17日 国际大学生节\n");
+            printf("\t\t 11月25日 国际消除对妇女的暴力日(International Day For the elimination of Violence against Women)\n");
+            printf("\t\t 11月最后一个星期四美国感恩节(Thanksgiving Day)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		case 12:
+			SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+			printf("\n\t\t 12月1日  世界爱滋病日(World AIDS Day)\n");
+            printf("\t\t 12月3日  世界残疾人日(World Disabled Day)\n");
+            printf("\t\t 12月4日  全国法制宣传日\n");
+            printf("\t\t 12月9日  世界足球日(World Football Day)\n");
+            printf("\t\t 12月25日 圣诞节(Christmas Day)\n");
+			printf("\t\t 12月29日 国际生物多样性日(International Biological Diversity Day)\n\n");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+			break;
+		}
+}

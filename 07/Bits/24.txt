@@ -1,0 +1,65 @@
+/**
+ * 重置系统
+ */
+void resetpwd()
+{
+	char pwd[9],pwd1[9],ch;
+    int i;
+    FILE *fp1;
+    system("cls");
+    printf("\n请输入旧密码：\n");
+    for(i=0;i<8 && ((pwd[i]=getch())!=13);i++)
+    {
+        putch('*');
+    }   
+    pwd[i]='\0';
+    if(strcmp(password,pwd)!=0)
+    {
+        printf("\n密码错误，请按任意键退出！\n");       //比较旧密码，判断用户权限
+        getch();
+        return;             
+     }   
+     do{
+         	printf("\n设置新密码，请不要超过8位：");
+            for(i=0;i<8&&((pwd[i]=getch())!=13);i++)
+            {
+                putch('*');
+            }
+            printf("\n再确认一次密码：");
+            for(i=0;i<8&&((pwd1[i]=getch())!=13);i++) 
+            {
+                putch('*');                             //屏幕中输出提示字符
+            }
+            pwd[i]='\0';  
+            pwd1[i]='\0';
+            
+            if(strcmp(pwd,pwd1)!=0)
+            {
+                printf("\n两次密码输入不一致，请重新输入！\n\n");
+            }
+            else 
+            {
+            	break;
+            }
+            
+    }while(1);
+        
+    if((fp1=fopen("config.bat","wb"))==NULL)        //打开密码文件
+    {
+        printf("\n系统创建失败，请按任意键退出！");
+        getch();
+        exit(1);
+    }
+        
+    i=0;
+    while(pwd[i])
+    {
+        putw(pwd[i],fp1);
+        i++;
+    }
+        
+    fclose(fp1);                                    //关闭文件流
+    printf("\n密码修改成功，按任意键退出！\n");
+    getch();
+    return;
+}

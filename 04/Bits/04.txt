@@ -1,0 +1,16 @@
+/*******函  数  声  明*******/
+void DateRefer(int year,int month,int day,bool SST);		//公历查农历
+//取当前月份天数，mode为false时，查公历，mode为true时查农历，bLeap是否闰月
+int GetDaysOfMonth(int year,int month,bool mode,bool bLeap); 
+void ShowCalendar(int year,int month,int day);				//打印一个月的月历
+int Jizhun(int year,int month,int day);					//算出基准天
+int int2(double v);											//取整
+double GetDecimal(double n);									//取一个数的小数部分
+LONGTIME GetDate(double n);									//将数字转公历
+int GetGre(LUNARDATE LunarDate);								//农历查公历
+LONGTIME GetCurTime();										//取当前系统时间
+LONGTIME SysTimeToLong(SYSTEMTIME SystemTime);				//时间结构体转换
+LONGTIME GMTConvert(LONGTIME OrigTime);					//时区转换
+bool IsLeapYear(int nYear);									//闰年
+void ShowSolarTerms(int year);								//显示二十四节气
+void Holiday(int month);										//公历节日

@@ -1,0 +1,16 @@
+/**
+*  主函数
+*/
+int main(void)
+{
+	system("color f0\n");		//白底黑字
+  	emp_first=emp_end=NULL;
+  	gsave=gfirst=0;
+  
+  	checkfirst();				//初始化检测
+  	login();					//登录检测
+  	readdata();				//读取文件数据的函数
+  	menu();						//主菜单列表
+  	system("PAUSE");
+  	return 0;
+}

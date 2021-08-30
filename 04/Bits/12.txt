@@ -1,0 +1,24 @@
+			case 7:
+				printf("显示二十四节气：\r\n\r\n");
+				printf("请输入要查询的年份（1840～2100）：");
+				while (1)
+				{
+					scanf("%d",&year);
+					if (year<=start_year||year>end_year)
+					{
+						error_times++;
+						printf("您输入的年份有误，请重新输入（错误%d次/5次）：Year>",error_times);
+						if (error_times>=5)
+						{
+							printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+							system("pause >nul");
+							return 1;
+						}
+					}
+					else
+					{
+						break;
+					}
+				}
+				ShowSolarTerms(year);
+				break;

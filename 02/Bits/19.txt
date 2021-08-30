@@ -1,0 +1,104 @@
+/**
+ * 键盘控制移动
+ */
+int keyboardControl(int key) {
+    int i = 0, j = 0;
+    int *p;
+    int tp[4] = {0, 0, 0, 0};
+    switch(key)							//LEFT = 75, UP = 72, RIGHT = 77, DOWN = 80
+	{	
+    	case 72: 							// up，向上键
+ 			j = 0;
+        	for(i = 0; i < 4; i++)
+			{
+            	tp[0] = BOX[0][i];      //把一列数移到中间变量
+            	tp[1] = BOX[1][i];
+            	tp[2] = BOX[2][i];
+            	tp[3] = BOX[3][i];
+            	p = add(tp);            	//获得合并之后的数值
+            	//判断是否可以移动，可以移动，则新出现一个数字；不能移动但按键了，也不会出现新数字
+           	 	if(!ifMove(tp))			
+				{
+					j++;        			//向上移动
+				}
+           	 	BOX[0][i] = p[0];       	//把处理好的中间变量移回来
+            	BOX[1][i] = p[1];
+            	BOX[2][i] = p[2];
+            	BOX[3][i] = p[3];
+        	}
+        	return j != 4;              	//当j不超过4时，可以执行up操作
+    	case 80: 							// down，向下键
+			j  = 0;
+        	for(i = 0; i < 4; i++)
+			{
+            	tp[0] = BOX[3][i];
+            	tp[1] = BOX[2][i];
+            	tp[2] = BOX[1][i];
+            	tp[3] = BOX[0][i];
+            	p = add(tp);
+           	 	if(!ifMove(tp))
+				{
+					j++;
+				}
+            	BOX[3][i] = p[0];
+            	BOX[2][i] = p[1];
+            	BOX[1][i] = p[2];
+           	 BOX[0][i] = p[3];
+       	 	}
+        	return j != 4;
+    	case 75:							// left，向左键
+			j = 0;
+        	for(i = 0; i < 4; i++)
+			{
+            	tp[0] = BOX[i][0];
+            	tp[1] = BOX[i][1];
+            	tp[2] = BOX[i][2];
+            	tp[3] = BOX[i][3];
+            	p = add(tp);
+          		if(!ifMove(tp))
+				{
+					j++;
+				};
+            	BOX[i][0] = p[0];
+            	BOX[i][1] = p[1];
+            	BOX[i][2] = p[2];
+            	BOX[i][3] = p[3];
+        	}
+        	return j != 4;
+    	case 77: 										// right，向右键
+			j = 0;
+        	for(i = 0; i < 4; i++)
+			{
+        	    tp[0] = BOX[i][3];
+            	tp[1] = BOX[i][2];
+           	 	tp[2] = BOX[i][1];
+            	tp[3] = BOX[i][0];
+            	p = add(tp);
+				if(!ifMove(tp))
+				{
+					j++;
+				}
+            	BOX[i][3] = p[0];
+           	 	BOX[i][2] = p[1];
+           	 	BOX[i][1] = p[2];
+            	BOX[i][0] = p[3];
+        	}
+        	return j != 4;
+		case 27:										//按Esc
+			gotoxy(20,23);
+			color(12);
+			printf("确定退出游戏么? (y/n)");
+			char c = getch();           				//获得键盘输入
+			if(c == 'y' ||c == 'Y')     			//如果输入的是大写或者小写的y
+			{
+				exit(0);                				//退出游戏
+			}
+			if(c == 'n'||c == 'N')      			//如果输入的是大写或者小写的n
+			{
+				gotoxy(20,23);
+				printf("                        ");   	//继续游戏
+			}
+			break;
+    	default: return 0;
+    }
+}

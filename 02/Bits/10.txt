@@ -1,0 +1,37 @@
+/**
+ * 绘制游戏界面4×4的网格
+ */
+void drawTheGameBox()
+{
+	int i,j,k;
+	color(14);       			//黄色
+	for(j = 2;j <= 22;j += 5)                                  //打印棋盘边框
+	{
+		gotoxy(15,j);
+		for(k = 1;k<42;k++)
+		{
+			printf("-");	//打印棋盘的横向边框
+		}
+		printf("\n");
+	}
+	for (i = 3;i < 7;i ++)
+	{
+		gotoxy(15,i);
+		printf("|         |         |         |         | ");	 //打印棋盘的纵向边框
+	}
+	for (i = 8;i<12;i++)
+	{
+		gotoxy(15,i);
+		printf("|         |         |         |         | ");
+	}
+	for (i = 13;i<17;i++)
+	{
+		gotoxy(15,i);
+		printf("|         |         |         |         | ");
+	}
+	for (i = 18;i<22;i++)
+	{
+		gotoxy(15,i);
+		printf("|         |         |         |         | ");
+	}
+}

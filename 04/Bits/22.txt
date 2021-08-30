@@ -1,0 +1,64 @@
+/**
+ * 计算当前月份的天数
+ */
+int GetDaysOfMonth(int year,int month,bool mode,bool bLeap)
+{
+	int dM0=0,dMn=0;
+	if (!mode)
+	{
+		dM0=Jizhun(year,month,1);				//月首天数
+		if (month==12)
+		{
+			dMn=Jizhun(++year,1,1)-dM0;			//元旦
+		}else
+		{
+			dMn=Jizhun(year,++month,1)-dM0;		//下个月
+		}
+	}else
+	{
+		int leap_Month=-1;						//农历闰月所在位置
+		int hang=year-start_year;				//所在行
+		int i=0;
+		int lie=month+1;
+		for (i=0;i<14;i++)
+		{
+			if (Yuexu[hang*14+i+1]==Yuexu[hang*14+i])
+			{
+				leap_Month=i-1;
+				break;
+			}
+		}
+		if (leap_Month==-1)
+		{
+			if (bLeap)
+			{
+				return -1;					//如果当前年份无闰月，而输入有闰月，则返回-1，代表输入错误
+			}
+		}else
+		{
+			if (bLeap)
+			{
+				if (leap_Month!=month)
+				{
+					return -1;			//当前年份有闰月，但并非当前输入月份
+				}
+			}
+		}
+		if (leap_Month!=-1)
+		{
+			if (month>leap_Month)		//在当年闰月以及之后
+			{
+
+				lie++;
+			}else
+			{
+				if (bLeap==true&&month==leap_Month)
+				{
+					lie++;
+				}
+			}
+		}
+		dMn=Yueshou[hang*15+lie+1]-Yueshou[hang*15+lie];
+	}
+	return dMn;//返回当前公历月份的天数
+}

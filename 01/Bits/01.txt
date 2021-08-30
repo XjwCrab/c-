@@ -1,0 +1,5 @@
+/*******头   文  件*******/
+#include <stdio.h>			//标准输入输出函数库（printf、scanf）
+#include <windows.h>		//控制dos界面（获取控制台上坐标位置、设置字体颜色）
+#include <conio.h>			//接收键盘输入输出（kbhit()、getch()）
+#include <time.h>			//用于获得随机数

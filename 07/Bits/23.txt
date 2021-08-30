@@ -1,0 +1,30 @@
+/**
+ * 统计学生信息
+ */
+void summaryemp()
+{
+   	EMP *emp1;
+   	int sum=0,num=0,man=0,woman=0;
+   	emp1=emp_first;
+   	while(emp1)
+   	{
+       	num++;
+       	sum+=emp1->salary;        //累计工资数
+       	char strw[2];
+       	strncpy(strw,emp1->sex,2);
+       	if((strcmp(strw,"ma")==0)||(strcmp(emp1->sex,"男")==0)) man++;
+       	else woman++;
+       	emp1=emp1->next;
+   	}
+
+  	printf("\n下面是相关员工的统计信息！\n");
+   	bound('_',40);
+   	printf("员工总数是：%d\n",num);
+  	printf("员工的工资总数是：%d\n",sum);
+  	printf("男员工数为：%d\n",man);
+   	printf("女员工数为：%d\n",woman);
+   	bound('_',40);
+   	printf("按任意键退出！\n");
+   	getch();
+   	return;
+}

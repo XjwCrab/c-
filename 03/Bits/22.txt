@@ -1,0 +1,47 @@
+/**
+ * 结束游戏
+ */
+void endgame()
+{
+    system("cls");
+    if(endgamestatus==1)		//如果蛇撞到了墙
+    {
+        
+		Lostdraw();
+		gotoxy(35,9);
+    	color(12);
+		printf("对不起，您撞到墙了。游戏结束！");
+    }
+    else if(endgamestatus==2)		//如果蛇咬到了自己
+    {
+        
+        Lostdraw();
+        gotoxy(35,9);
+    	color(12);
+        printf("对不起，您咬到自己了。游戏结束！");
+    }
+    else if(endgamestatus==3)		//如果按了Esc键退出
+    {
+		Lostdraw();
+		gotoxy(40,9);
+    	color(12);
+        printf("您已经结束了游戏。");
+    }
+    gotoxy(43,12);
+    color(13);
+    printf("您的得分是 %d",score);
+	if(score >= HighScore)		//如果分数高于最高分
+	{
+		color(10);
+		gotoxy(33,16);
+		printf("创纪录啦！最高分被你刷新啦，真棒！！！");
+		File_in();             //把最高分写进文件
+	}
+	else						//如果分数低于最高分
+	{
+		color(10);
+		gotoxy(33,16);
+		printf("继续努力吧~ 你离最高分还差：%d",HighScore-score);
+	}
+	choose();					//边框下面的分支选项
+}

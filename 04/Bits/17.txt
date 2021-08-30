@@ -1,0 +1,13 @@
+	//计算月历中的第一天的农历日期
+	Lyear=year;							//农历年
+	Lmonth_index=hang*14+lie;				//农历月索引
+	Lmonth=Yuexu[Lmonth_index]-1;			//农历月,从十一月开始(即冬至所在农历月为首)
+	if (Lmonth<1)
+	{
+		Lmonth+=12;
+	}
+	if (Lmonth>10&&((hang*14+lie)%14<2))
+	{
+		Lyear--;							//对于十一月和十二月，年份应为上一年
+	}
+	Lday=dM0-Yueshou[hang*15+lie];		//农历日则是按距农历月首的天数来算

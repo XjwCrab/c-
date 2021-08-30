@@ -1,0 +1,103 @@
+        //按键操作
+  		while(1)  									//控制方块方向，直至方块不再下移
+  		{
+   			label:PrintTetris(tetris);			//打印俄罗斯方块
+   			Sleep(tetris->speed);   			//延缓时间
+   			CleanTetris(tetris);  					//清除痕迹
+   			Temp1=tetris->x;    					//记住中心方块横坐标的值
+   			Temp2=tetris->flag;    				//记住当前俄罗斯方块序号
+   			if(kbhit())       				  	 	//判断是否有键盘输入，有则用ch↓接收
+   			{
+    			ch=getch();
+    			if(ch==75)     						//按 ←键则向左动，中心横坐标减2
+    			{
+     				tetris->x-=2;
+    			}
+    			if(ch==77)     						//按 →键则向右动，中心横坐标加2
+    			{
+     				tetris->x+=2;
+    			}
+    			if(ch==80)     						//按 ↓键则加速下落
+    			{
+					if(ifMove(tetris)!=0)
+					{
+						tetris->y+=2;
+					}
+					if(ifMove(tetris)==0)
+						{
+							tetris->y=FrameY+Frame_height-2;
+    					}
+    			}
+    			if(ch==72)     						//按 ↑键则变体,即当前方块顺时针转90度
+    			{
+    	 			if( tetris->flag>=2 && tetris->flag<=3 )	//如果是直线方块
+     				{
+      					tetris->flag++;
+      					tetris->flag%=2;
+      					tetris->flag+=2;
+     				}
+     				if( tetris->flag>=4 && tetris->flag<=7 )	//如果是T字方块
+     				{
+      					tetris->flag++;
+      					tetris->flag%=4;
+      					tetris->flag+=4;
+     				}
+     				if( tetris->flag>=8 && tetris->flag<=11 )	//如果是Z字方块
+     				{
+      					tetris->flag++;
+      					tetris->flag%=4;
+      					tetris->flag+=8;
+     				}
+     				if( tetris->flag>=12 && tetris->flag<=15 )	//如果是7字方块
+     				{
+      					tetris->flag++;
+      					tetris->flag%=4;
+      					tetris->flag+=12;
+     				}
+     				if( tetris->flag>=16 && tetris->flag<=19 )	//如果是反7字方块
+     				{
+      					tetris->flag++;
+      					tetris->flag%=4;
+      					tetris->flag+=16;
+     				}
+    			}
+    			if(ch == 32)     					//按空格键，暂停
+    			{
+     				PrintTetris(tetris);
+     				while(1)
+     				{
+      					if(kbhit())   			//再按空格键，继续游戏
+      					{
+       						ch=getch();
+       						if(ch == 32)
+       						{
+        						goto label;
+       						}
+      					}
+     				}
+    			}
+				if(ch == 27)
+				{
+					system("cls");
+					memset(a,0,6400*sizeof(int));       	//初始化a数组
+					welcom();
+				}
+    			if(ifMove(tetris)==0) 					//如果不可动，上面操作无效
+    			{
+    				tetris->x=Temp1;
+     				tetris->flag=Temp2;
+    			}
+    			else      									//如果可动，执行操作
+    			{
+     				goto label;
+    			}
+   			}
+   			tetris->y++;     								//如果没有操作指令，方块向下移动
+   			if(ifMove(tetris)==0)  						//如果向下移动且不可动，方块放在此处
+   			{
+    			tetris->y--;
+    			PrintTetris(tetris);
+    			Del_Fullline(tetris);
+    			break;
+   			}
+  		}

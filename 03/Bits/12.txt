@@ -1,0 +1,10 @@
+/**
+ * 在文件中读取最高分
+ */
+void File_out()
+{
+	FILE *fp;
+	fp = fopen("save.txt", "a+");       //打开文件save.txt
+	fscanf(fp, "%d", &HighScore);       //把文件中的最高分读出来
+	fclose(fp);                         	 //关闭文件
+}

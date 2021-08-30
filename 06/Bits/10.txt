@@ -1,0 +1,33 @@
+//学号排序
+end: p1=head;
+p3=p1;
+for(i=1;i<n;i++)
+{
+	for(j=i+1;j<=n;j++)
+	{
+		max=p1;
+		p1=p1->next;
+		if(max->number>p1->number)				//交换前后结点中的消费情况，使之与学号相匹配
+		{
+			//交换前后结点中的学号值，使得学号大者移到后面的结点中
+			k=max->number;
+			max->number=p1->number;
+			p1->number=k;
+			//交换前后结点中的姓名，使之与学号相匹配
+			strcpy(t,max->name);
+			strcpy(max->name,p1->name);
+			strcpy(p1->name,t);
+        }
+    }
+	max=head;p1=head;								//重新使max、p指向链表头
+}
+p2->next=NULL;										//链表结尾
+printf("\t    共输入 ");
+SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGR
+OUND_BLUE|FOREGROUND_RED|FOREGROUND_BLUE);   	//更改文字颜色，为紫色
+printf("%d  ",n);
+SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGR
+OUND_BLUE);   										//改回文字颜色，白底黑字
+printf("条学生消费记录!\n");
+getch();
+return(head);

@@ -1,0 +1,47 @@
+/**
+*  自定义排序函数
+*/
+void order()
+{ 
+	FILE *fp;
+  	struct student t;
+  	int i=0,j=0,m=0;
+  	if((fp=fopen("data.txt","r+"))==NULL)
+    { 
+		printf("文件不存在！\n");
+        return;
+  	}
+  	while(!feof(fp)) 
+ 	if(fread(&stu[m] ,LEN,1,fp)==1) 
+	  	m++;
+  	fclose(fp);
+  	if(m==0) 
+  	{
+	  	printf("文件中没有记录!\n");
+	  	return;
+  	}
+  	if((fp=fopen("data.txt","wb"))==NULL)
+    {
+	  	printf("文件不存在！\n");
+	  	return;
+	}
+  	for(i=0;i<m-1;i++)
+      for(j=i+1;j<m;j++)				//双重循环实现成绩比较交换
+        if(stu[i].sum<stu[j].sum)
+        { 
+		  	t=stu[i];stu[i]=stu[j];stu[j]=t;
+		}
+	if((fp=fopen("data.txt","wb"))==NULL)
+    { 
+		printf("文件不存在！\n");
+		return;
+	}
+  	for(i=0;i<m;i++)				//将重新排好序的内容写入指定的磁盘文件中
+      	if(fwrite(&stu[i] ,LEN,1,fp)!=1)
+       	{ 
+        	printf("%s 不能保存文件!\n"); 
+        	getch();
+      	}
+  	fclose(fp);
+  	printf("保存成功\n");
+}

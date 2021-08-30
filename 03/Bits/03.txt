@@ -1,0 +1,14 @@
+/*******定  义  全  局  变  量 *******/
+typedef struct snake 			//蛇身的一个节点
+{
+    int x;						//节点的x坐标
+    int y;						//节点的y坐标
+    struct snake *next;		//蛇身的下一节点
+}snake;
+int score=0,add=10;			//总得分与每次吃食物得分
+int HighScore = 0;				//最高分
+int status,sleeptime=200;		//蛇前进状态，每次运行的时间间隔
+snake *head, *food;			//蛇头指针，食物指针
+snake *q;						//遍历蛇的时候用到的指针
+int endgamestatus=0;			//游戏结束的情况，1：撞到墙；2：咬到自己；3：主动退出游戏。
+HANDLE hOut;					//控制台句柄

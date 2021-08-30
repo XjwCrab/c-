@@ -1,0 +1,34 @@
+			case 5:
+				lt=GetCurTime();
+				dMn=Jizhun(lt.wYear,lt.wMonth,lt.wDay);
+				hOut = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+				printf("查询距今天相应天数的日期（请输入距今天（%d-%d-%d）的天数  范围%d～%d）：",lt.wYear,lt.wMonth,lt.wDay,-dMn-2451545,6574364-dMn);
+				while (1)
+				{
+					scanf("%d",&days);
+					if (days>(6574364-dMn)||days<(-dMn-2451545))
+					{
+						error_times++;
+						printf("您输入的天数有误，请重新输入（错误%d次/5次）：Days>",error_times);
+						if (error_times>=5)
+						{
+							printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+							system("pause >nul");
+							return 1;
+						}
+					}else
+					{
+						break;
+					}
+				}
+				lt2 = GetDate((double)(dMn+days));
+				lt3 = GetDate((double)(dMn-days));
+				printf("距离今天（%d-%d-%d）【 %d 】天的日期为：",lt.wYear,lt.wMonth,lt.wDay,days);
+				SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);	//红字
+				printf("\n%d-%d-%d  %s",lt2.wYear,lt2.wMonth,lt2.wDay,Xingqi[lt2.wDayOfWeek]);
+				SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+				printf("  或者为：");
+				SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);	//红字
+				printf("%d-%d-%d  %s\r\n\n\n",lt3.wYear,lt3.wMonth,lt3.wDay,Xingqi[lt3.wDayOfWeek]);
+				SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+				break;

@@ -1,0 +1,69 @@
+			case 8:
+				printf("\t\t\t        显示节日\r\n\r\n");
+				printf("\t\t========================================\n");
+				printf("\n\t\t1、显示公历节日\t\t2、显示农历节日\n");
+				printf("\n\t\t请选择：");
+				int choice=0;
+				scanf("%d",&choice);
+				system("cls"); //调用DOS清屏命令
+				switch(choice)
+				{
+					case 1:
+						printf("\n\t\t\t\t 公历节日查询\n\n");
+						printf("\t\t =========================================\n");
+						printf("\n");
+	  		  			printf("\t\t 请输入要查询的月份:   ");
+	  		 	 		while(1)
+						{
+							int month=0;
+	  		  				scanf("%d",&month);
+							if(month<0||month>13)
+	  		  				{
+								printf("\t\t输入错误，请输入正确月份（1~12）:");
+	  		  				}
+	  		  				else
+							{
+								hOut = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+								SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);	//红字
+								printf("\n\t\t\t\t%d月份的节日\n",month);
+								SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+								Holiday(month);
+								break;
+							}
+						}
+						break;
+					case 2:
+						printf("\n\t\t\t\t 农历节日查询\n\n");
+						printf("\t\t===============================================\n");
+						printf("\n");
+						hOut = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+						SetConsoleTextAttribute(hOut,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);	//蓝字
+						printf("\n\t\t农历正月初一   春节(the Spring Festival)\n");
+   		 				printf("\n\t\t农历正月十五   元宵节(Lantern Festival)\n");
+    					printf("\n\t\t农历五月初五   端午节(the Dragon-Boat Festival)\n");
+   						printf("\n\t\t农历七月初七   七夕节(中国情人节）(Double-Seventh Day)\n");
+    					printf("\n\t\t农历八月十五   中秋节(the Mid-Autumn Festival)\n");
+    					printf("\n\t\t农历九月初九   重阳节(the Double Ninth Festival)\n");
+    					printf("\n\t\t农历腊月初八   腊八节(the laba Rice Porridge Festival)\n");
+    					printf("\n\t\t农历腊月二十四 传统扫房日\n\n");
+						SetConsoleTextAttribute(hOut,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);		//恢复文字颜色
+					break;
+				}
+				break;
+			default:
+				error_times++;
+				printf("您的输入有误，请重新输入（错误%d次/5次）。\r\n\r\n",error_times);
+				if (error_times>=5)
+				{
+					printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+					system("pause >nul");
+					return 1;
+				}
+				break;
+		}
+		printf("请按任意键返回主菜单。");
+		system("pause >nul");
+		system("cls");
+	}
+	return 0;
+}

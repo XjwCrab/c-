@@ -1,0 +1,18 @@
+/**
+ * 修改非数值型信息的函数
+ */
+char *modi_field(char *field,char *content,int len)
+{
+     char *str;
+     str=malloc(sizeof(char)*len);
+     if(str==NULL)
+     {
+         printf("内存分配失败，按任意键退出！");
+         getch();
+         return NULL;
+     }
+     printf("原来%s为：%s\n",field,content);
+     printf("修改为（内容不要超过%d个字符！）：",len);
+     scanf("%s",str);
+     return str;
+}

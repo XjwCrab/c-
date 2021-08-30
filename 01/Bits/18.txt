@@ -1,0 +1,23 @@
+/**
+ * 开始游戏
+ */
+void Gameplay()
+{
+	int n;
+ 	struct Tetris t,*tetris=&t;       				//定义结构体的指针并指向结构体变量
+ 	char ch;         									//定义接收键盘输入的变量
+ 	tetris->number=0;      							//初始化俄罗斯方块数为0个
+ 	tetris->speed=300;      							//初始移动速度为300ms
+	tetris->score=0;      								//初始游戏的分数为0分
+ 	tetris->level=1;      								//初始游戏为第1关
+ 	while(1)											//循环产生方块，直至游戏结束
+ 	{
+  		Flag(tetris);     								//得到产生俄罗斯方块类型的序号
+  		Temp=tetris->flag;     						//记住当前俄罗斯方块序号
+  		tetris->x=FrameX+2*Frame_width+6;			//获得预览界面方块的x坐标
+  		tetris->y=FrameY+10;                         	//获得预览界面方块的y坐标
+  		tetris->flag = tetris->next;                 //获得下一个俄罗斯方块的序号
+  		PrintTetris(tetris);                          //调用打印俄罗斯方块方法
+  		tetris->x=FrameX+Frame_width;  				//获得游戏窗口中心方块x坐标
+  		tetris->y=FrameY-1;     						//获得游戏窗口中心方块y坐标
+  		tetris->flag=Temp;  

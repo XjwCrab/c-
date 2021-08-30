@@ -1,0 +1,7 @@
+/*******头  文  件*******/
+#include<stdafx.h>			//vc自带头文件
+#include<stdio.h>			//标准输入输出函数库
+#include<time.h>			//用于获得随机数
+#include<windows.h>		//控制dos界面
+#include<stdlib.h>			//即standard library标志库头文件，里面定义了一些宏和通用工具函数
+#include<conio.h>			//接收键盘输入输出

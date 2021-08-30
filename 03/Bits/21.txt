@@ -1,0 +1,77 @@
+/**
+ * 失败界面
+ */
+void Lostdraw()
+{
+	system("cls");
+	int i;
+	gotoxy(45,2);
+	color(6);
+	printf("\\\\\\|///");			//小人的头发
+	gotoxy(43,3);
+	printf("\\\\");
+	gotoxy(47,3);
+	color(15);
+	printf(".-.-");				//眉毛
+	gotoxy(54,3);
+	color(6);
+	printf("//");
+
+	gotoxy(44,4);
+	color(14);
+	printf("(");					//左耳
+
+	gotoxy(47,4);
+	color(15);
+	printf(".@.@");				//眼睛
+
+	gotoxy(54,4);
+	color(14);
+	printf(")");					//右耳
+
+	gotoxy(17,5);
+	color(11);
+	printf("+------------------------");		//上边框
+
+	gotoxy(35,5);
+	color(14);
+	printf("oOOo");				//左手
+
+	gotoxy(39,5);
+	color(11);
+	printf("----------");			//上边框
+
+	gotoxy(48,5);
+	color(14);
+	printf("(_)");					//嘴
+
+	gotoxy(51,5);
+	color(11);
+	printf("----------");			//上边框
+
+	gotoxy(61,5);
+	color(14);
+	printf("oOOo");				//右手
+
+	gotoxy(65,5);
+	color(11);
+	printf("-----------------+");	//上边框
+	
+	for(i = 6;i<=19;i++)        	//竖边框
+	{
+		gotoxy(17,i);
+		printf("|");
+		gotoxy(82,i);
+		printf("|");
+	}
+
+	gotoxy(17,20);
+	printf("+---------------------------------");		//下边框
+ 	gotoxy(52,20);
+	color(14);
+	printf("☆☆☆〃");
+
+	gotoxy(60,20);
+	color(11);
+	printf("----------------------+");					//下边框
+}

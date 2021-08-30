@@ -1,0 +1,23 @@
+	/*绘制主界面的背景*/
+	case WM_PAINT:                           //重绘窗口
+		hdc = BeginPaint(hDlg,&ps);         //指定窗口进行绘图工作的准备，创建窗口的资源句柄
+		GetWindowRect(hDlg,&rect);          //获取客户区域
+		Width = rect.right - rect.left;     //设置图片的长宽
+		Height = rect.bottom -rect.top;
+		memDC = CreateCompatibleDC(hdc);     //创建缓存
+		bmp = LoadBitmap(g_hInstance,MAKEINTRESOURCE(IDB_BITMAP_CLIENT)); //获得图片
+		GetObject(bmp, sizeof (BITMAP), &mBitmap) ;
+		SelectObject(memDC,bmp);
+		StretchBlt (hdc,0,0,Width,Height,memDC,0,0,mBitmap.bmWidth, 
+				mBitmap.bmHeight,SRCCOPY) ;  //将缓存的内容交给资源句柄来绘制图片
+		DeleteDC (memDC);                     //删除缓存
+		EndPaint(hDlg,&ps);                   //结束绘制图片
+		return 0;
+	case WM_CLOSE:                             //关闭窗口
+		PostQuitMessage (0) ;
+	case WM_DESTROY :	
+		break;
+	   return 0 ;
+    }
+    return 0 ;	
+}

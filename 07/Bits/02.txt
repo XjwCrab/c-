@@ -1,0 +1,4 @@
+//定义全局变量
+char password[9];          		//系统密码
+EMP *emp_first,*emp_end;   		//定义指向链表的头结点和尾结点的指针
+char gsave,gfirst;         		//判断标示

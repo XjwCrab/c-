@@ -1,0 +1,77 @@
+		//打印农历
+		}else
+		{
+			if (fillblanks)
+			{
+				//农历填充空格
+				if (isfirstline&&dw0!=0)
+				{
+					printf("   \t ");
+				}
+				if (dw0==0)
+				{
+					cal_item=-1;
+				}
+				for (idw;idw>2;idw--)
+				{
+
+					printf("\t   ");	//填充首行农历前面空格，条件与公历不同，原因在于控制输出布局
+					cal_item++;			//当前填充位置往后移一格
+				}
+				if (dw0>1)
+				{
+					printf("\t ");
+					cal_item++;
+				}
+				fillblanks=false;		//停止填充空格
+			}else
+			{
+				if (dM_lunar>=lunar_ndays)
+				{
+					//农历日超出本月天数,则为下一月
+					//下一月重新查询
+					Lmonth_index++;
+					Lmonth=Yuexu[Lmonth_index]-1;
+					if (Lmonth<1)
+					{
+						Lmonth+=12;
+					}
+
+					if (Lmonth>10)
+					{
+						year--;		//对于十一月和十二月的，年份应为上一年的
+					}
+					lunar_ndays=Yueshou[hang*15+lie+2]-Yueshou[hang*15+lie+1];	//重新计算新的一个农历月天数
+					dM_lunar=0;		//从初一开始
+				}
+				//星期六和星期日红色字体输出农历日期
+				if (cal_item==0||cal_item==6)
+				{
+					handle = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+					SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);
+				}else
+				{
+					SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+				}
+
+				if (int2(jq1+0.5)==jd_day)
+				{
+					if (cal_item==0)
+					{
+						printf("  ");
+					}
+					HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);		//获取控制台句柄
+					SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);   	//更改文字颜色，为红色
+					printf("%s",jieqi[(index_jieqi)%24]);					//如果当天有节气(jq1),则打印出节气名称
+					SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+				}else if (int2(jq2+0.5)==jd_day)
+				{
+					if (cal_item==0)
+					{
+						printf("  ");
+					}
+					HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);		//获取控制台句柄
+					SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);   	//更改文字颜色，为红色
+					printf("%s",jieqi[(index_jieqi+1)%24]);					//如果当天有节气(jq2),则打印出节气名称
+					SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+				}

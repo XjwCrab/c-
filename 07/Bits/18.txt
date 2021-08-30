@@ -1,0 +1,28 @@
+/**
+ * 显示员工信息
+ */
+void displayemp(EMP *emp,char *field,char *name)
+{
+    if(emp)
+    {
+        printf("\n%s:%s信息如下：\n",field,name);
+        bound('_',30);                             //绘制分界线
+        printf("工号：%d\n",emp->num);
+        printf("职务：%s\n",emp->duty);
+        printf("姓名：%s\n",emp->name);
+        printf("性别：%s\n",emp->sex);
+        printf("年龄：%d\n",emp->age);
+        printf("文化程度：%s\n",emp->edu);
+        printf("工资：%d\n",emp->salary);
+        printf("办公电话：%s\n",emp->tel_office);
+        printf("家庭电话：%s\n",emp->tel_home);
+        printf("移动电话：%s\n",emp->mobile);
+        printf("QQ号码：%s\n",emp->qq);
+        printf("住址:%s\n",emp->address);
+        bound('_',30);
+    }else {
+    	bound('_',40);
+    	printf("资料库中没有%s为：%s的员工！请重新确认！",field,name);
+    }
+    return;
+}

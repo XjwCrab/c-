@@ -1,0 +1,27 @@
+/**
+ * 初始化蛇身，画蛇身
+ */
+void initsnake()
+{
+    snake *tail;
+    int i;
+    tail=(snake*)malloc(sizeof(snake));	//从蛇尾开始，头插法，以x,y设定开始的位置//
+    tail->x=24;         						//蛇的初始位置（24,5）
+    tail->y=5;
+    tail->next=NULL;
+    for(i=1;i<=4;i++)       					//设置蛇身，长度为5
+    {
+        head=(snake*)malloc(sizeof(snake)); //初始化蛇头
+        head->next=tail;        				//蛇头的下一位为蛇尾
+        head->x=24+2*i;         				//设置蛇头位置
+        head->y=5;
+        tail=head;             	 				//蛇头变成蛇尾，然后重复循环
+    }
+    while(tail!=NULL)							//从头到尾，输出蛇身
+    {
+        gotoxy(tail->x,tail->y);
+		color(14);
+        printf("★");       					//输出蛇身，蛇身使用★组成
+        tail=tail->next;   	 				//蛇头输出完毕，输出蛇头的下一位，一直输出到蛇尾
+    }
+}

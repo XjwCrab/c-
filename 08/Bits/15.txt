@@ -1,0 +1,7 @@
+    printf("请输入要插入的位置(number)：\n");
+  	scanf("%d",&snum);			//输入要插入的位置
+  	for(i=0;i<m;i++)
+	  	if(snum==stu[i].num)
+		  	break;
+	  	for(j=m-1;j>i;j--)
+           	stu[j+1]=stu[j];	//从最后一条记录开始均向后移一位

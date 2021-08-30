@@ -1,0 +1,11 @@
+	gotoxy(16,1);   								//屏幕坐标位置
+	color(11);      								//淡浅绿色
+	printf("游戏分数: %ld",score);
+
+	color(13);      								//粉色
+	gotoxy(42,1);   								//屏幕坐标位置
+	printf("执行步数: %d\n",step);
+
+    gotoxy(44,23);
+	color(10);                                  	//绿色
+	printf("已用时：%d s",time(NULL) - Time);   //输出游戏运行时间

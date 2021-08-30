@@ -1,0 +1,11 @@
+/**
+ * 结 构 体
+ */
+struct scorenode
+{
+	int number;		//学号
+	char name[10];		//姓名
+	int xiaofei;		//消费情况
+	struct scorenode *next;
+};
+typedef struct scorenode score;

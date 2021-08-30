@@ -1,0 +1,20 @@
+/**
+*  显示所有学生信息
+*/
+void show()
+ {
+	FILE *fp;
+  	int i,m=0;
+  	fp=fopen("data.txt","rb");
+  	while(!feof(fp))
+  	{
+  		if(fread(&stu[m] ,LEN,1,fp)==1)
+   		m++;
+   	}
+   	fclose(fp);
+   	printf("number  name           elective    experiment  required    sum\t\n");
+   	for(i=0;i<m;i++)
+    {
+	    printf(FORMAT,DATA);		//将信息按指定格式打印
+    }
+} 

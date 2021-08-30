@@ -1,0 +1,28 @@
+			//选项“3”
+			case 3:
+				printf("月历显示：\r\n\r\n");
+				printf("请输入要查询的公历年月(1840～2100)：Year Month>");
+				while (1)
+				{
+					scanf("%d %d",&year,&month);		//输入年份和月份
+					//对输入的年份和月份进行基本判断
+					if (year<=start_year||year>end_year||month<1||month>12)
+					{
+						error_times++;				//错误次数
+						//显示错误输入了几次
+						printf("您输入的年月有误，请重新输入（错误%d次/5次）。Year "
+								"Month>",error_times);
+						//如果错误次数大于等于5次，显示下面语句，并按任意键即可退出
+						if (error_times>=5)
+						{
+							printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+							system("pause >nul");
+							return 1;
+						}
+					}else
+					{
+						break;
+					}
+				}
+				ShowCalendar(year,month,day);		//调用ShowCalendar()函数打印当月月历
+				break;

@@ -1,0 +1,44 @@
+/**
+ * 判断是否失败，并输出棋盘最大数
+ */
+int Gamefaile()
+{
+	int flag = 0;
+	int max;
+    //当上下左右都不能移动时，游戏失败
+	if(ifup() + ifdown() + ifleft() + ifright() == 0)				
+	{
+		system("cls");
+		gotoxy(34,3);
+		color(14);
+		printf("合并出的最大数是：");
+		gotoxy(52,3);
+		color(11);
+		max = BOXmax();
+		printf("%d",max);
+		gotoxy(19,6);
+		color(4);   //暗红色
+    	printf("     ■■■■■    ■         ■    ■■     \n");  //输出end字符画
+    	gotoxy(19,7);
+    	printf("     ■            ■■       ■    ■  ■   \n");
+    	gotoxy(19,8);
+        printf("     ■            ■ ■      ■    ■    ■   \n");
+        gotoxy(19,9);
+		printf("     ■            ■  ■     ■    ■     ■  \n");
+		gotoxy(19,10);
+        printf("     ■■■■      ■   ■    ■    ■      ■  \n");
+        gotoxy(19,11);
+        printf("     ■            ■    ■   ■    ■     ■  \n");
+        gotoxy(19,12);
+		printf("     ■            ■     ■  ■    ■    ■   \n");
+		gotoxy(19,13);
+		printf("     ■            ■      ■ ■    ■  ■  \n");
+		gotoxy(19,14);
+		printf("     ■■■■■    ■       ■■    ■■     \n");
+		gotoxy(34,17);
+		color(13);
+		printf("无法移动，游戏失败！");                             //提示文字
+		flag = 1;
+	}
+   	return flag;                //flag的值默认是0，返回1则表示游戏失败
+}

@@ -1,0 +1,28 @@
+/**
+ * 检测登录密码
+ */
+void login()
+{
+    int i,n=3;
+    char pwd[9];
+    do{
+        printf("请输入密码：");
+        for(i=0;i<8 && ((pwd[i]=getch())!=13);i++)
+            putch('*');
+        pwd[i]='\0';
+        if(!strcmp(pwd,password))			//如果密码不匹配 
+        {
+            printf("\n密码错误，请重新输入！\n");
+            getch();
+            system("cls");              //调用清屏命令
+            n--;                        
+        }else 
+			break;
+    } while(n>0);                       //密码输入三次的控制
+    if(!n)
+    {
+        printf("请退出，你已输入三次错误密码！");
+        getch();
+        exit(1);      
+    }
+} 

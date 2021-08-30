@@ -1,0 +1,11 @@
+/**
+ *  加速，蛇吃到食物，或按F1，会自动提速
+ */
+void speedup()
+{
+	if(sleeptime>=50)			//如果时间间隔大于等于50
+	{		
+		sleeptime=sleeptime-10;		//时间间隔减10
+		add=add+2;			//每吃一次食物的得分加2
+    }
+}

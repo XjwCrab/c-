@@ -1,0 +1,10 @@
+/**
+ * 开始游戏
+ */
+void Gameplay()
+{
+	system("cls");      				//清屏
+	int i = 0, j = 0;
+	Time = time(NULL);					//取当前时间为开始时间
+    drawTheGameBox();               //绘制游戏界面
+}

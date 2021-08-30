@@ -1,0 +1,32 @@
+/*===============================主函数================================================*/
+main()
+{
+	system("color f0");			//设置控制台为白底黑字
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);	//获取控制台句柄
+	int num;
+	score *head=0,*stu=0;
+	menu();
+	scanf("%d",&num);
+	while(1)
+	{
+		switch(num)
+		{
+			case 1: head=creat();break;
+			case 2: head=load(head);break;
+			case 3: head=search(head);break;
+			case 4: head=del(head);break;
+			case 5: head=add(head,stu);break;
+			case 6: print(head);break;
+			case 7: save(head);break;	
+			case 0: exit(0); 
+			default:
+				SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);//更改文字颜色，为红色
+				printf("\t\t   请输入0~7之间的数!");
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);   	//改回文字颜色，白底黑字			
+			getch();
+		}
+		menu();
+		scanf("%d",&num);
+	}
+}
+

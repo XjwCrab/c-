@@ -1,0 +1,10 @@
+/**
+ * 重新游戏
+ */
+void Replay()
+{
+	system("cls");                  	//清屏
+	score = 0,step = 0;                 //分数、步数归零
+	memset(BOX,0,16*sizeof(int));      //初始化BOX数组
+	Gameplay();                         	//开始游戏
+}

@@ -1,0 +1,5 @@
+	//闰月
+	if (Yuexu[hang*14+lie-1]==Yuexu[hang*14+lie])
+	{
+		leap="闰";			//标记为闰月
+	}

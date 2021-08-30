@@ -1,0 +1,69 @@
+        do{
+          	fflush(stdin);
+            choice=getchar();
+            system("cls");
+            switch(choice)
+            {
+                case '1':
+                   addemp();        //调用员工信息添加函数
+                   break;
+                case '2':
+                   if(gfirst)
+                   {
+                       printf("系统信息中无员工信息，请先添加员工信息！\n");
+                       getch();
+                       break;          
+                   }  
+                   findemp();       //调用员工信息查找函数
+                   break;
+                case '3':
+                   if(gfirst)
+                   {
+                       printf("系统信息中无员工信息，请先添加员工信息！\n");
+                       getch();
+                       break;       
+                   }
+                   listemp();       //员工列表函数
+                   break;
+               case '4':
+                   if(gfirst)
+                  {
+                      printf("系统信息中无员工信息，请先添加员工信息！\n");
+                      getch();
+                      break;       
+                  }
+                  modifyemp();     //员工信息修改函数
+                  break;
+              case '5':
+                   if(gfirst)
+                  {
+                      printf("系统信息中无员工信息，请先添加员工信息！\n");
+                      getch();
+                      break;       
+                  }
+                  delemp();        //删除员工信息的函数
+                  break;
+              case '6':
+                   if(gfirst)
+                  {
+                      printf("系统信息中无员工信息，请先添加员工信息！\n");
+                      getch();
+                      break;       
+                  }
+                  summaryemp();     //统计函数
+                  break; 
+              case '7':
+                  resetpwd();      //重置系统的函数
+                  break;
+              case '0':
+                  savedata();      //保存数据的函数
+                  exit(0);        
+              default:
+					printf("请输入0~7之间的数字");
+					getch();
+					menu();     
+            }                             
+        } while(choice<'0'||choice>'7');  
+        system("cls");
+    }while(1);    
+} 

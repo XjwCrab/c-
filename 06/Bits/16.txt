@@ -1,0 +1,40 @@
+/*=========================显示所有记录=================================================*/
+void print(score *head)
+{
+	system("cls");
+	score *p;
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);		//获取控制台句柄,设置屏幕的背景色和文字颜色
+	SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);   	//更改文字颜色，为蓝色 
+	printf("\n\n\t\t\t\t显示所有学生消费记录\n");
+	SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);   	//恢复文字颜色，白底黑字
+	if(head==NULL)
+	{
+        SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);   	//更改文字颜色，为红色 
+		printf("\n\t\t 系统中还没有记录，请创建记录!\n");
+		SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);   	//恢复文字颜色，白底黑字
+	
+	}else
+	{
+		SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED|FOREGROUND_BLUE);   	//更改文字颜色，为粉色 
+		printf("\n\t\t共有%d名学生\n\n",n);
+		SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_GREEN|FOREGROUND_BLUE);   	//更改表格线颜色，为墨绿色
+		printf("\t\t---------------------------------------------------\n");
+		SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED|FOREGROUND_BLUE);   	//更改文字颜色，为紫色
+		printf("\t\t  | number\t|\tname\t|    consume    |\n");
+		SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_GREEN|FOREGROUND_BLUE);   	//更改表格线颜色，为墨绿色
+		printf("\t\t---------------------------------------------------\n");//打印表格域
+		SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);   	//恢复文字颜色，白底黑字
+		p=head;
+		do
+		{
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_BLUE);   	//更改文字颜色，为蓝色
+
+			printf("\t\t     %d\t\t     %s\t      %d\t\n",p->number,p->name,p->xiaofei);
+			SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_GREEN|FOREGROUND_BLUE);   	//更改表格线颜色，为墨绿色
+			printf("\t\t---------------------------------------------------\n");//打印表格
+			p=p->next;
+		}while (p!=NULL);/*打印完成*/
+		getch();
+		
+	}
+}

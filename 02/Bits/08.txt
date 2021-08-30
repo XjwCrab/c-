@@ -1,0 +1,49 @@
+/**
+ * 绘制小兔子
+ */
+void Rabbit()
+{
+	color(3);
+	gotoxy(64,10);
+	printf("┏-┓  ┏-┓");		//打印兔子耳朵
+	gotoxy(64,11);
+	printf("┃ ┃  ┃ ┃");
+	gotoxy(64,12);
+	printf("┃ ┃  ┃ ┃");
+	gotoxy(63,13);
+	printf("_┃");					//打印兔子脸
+	gotoxy(74,13);
+	printf("┃_");
+	gotoxy(62,14);
+	printf("┃");
+	gotoxy(76,14);
+	printf("┃");
+	gotoxy(62,15);
+	printf("┃            ┃");	 
+	gotoxy(62,16);
+	printf("┃");
+	gotoxy(76,16);
+	printf("┃");
+	gotoxy(62,17);
+	printf("┃            ┃");	//打印兔子脸
+	gotoxy(62,18);
+	printf("┗━┳━━┳━┛");	//打印下巴
+	gotoxy(64,19);
+	printf("┏┫    ┣┓");		//打印胳膊
+	gotoxy(62,20);
+	printf("—┺┻━┻┻┹—");
+	color(5);
+	gotoxy(67,13);
+	printf("`~ヾ~`");				//打印刘海
+	color(4);
+	gotoxy(67,14);
+	printf("○   ○");				//打印眼睛
+	color(13);
+	gotoxy(65,15);
+	printf("〃");					//打印腮红
+	gotoxy(74,15);
+	printf("〃");
+	color(12);
+	gotoxy(69,17);
+	printf("┻");					//打印嘴巴
+}

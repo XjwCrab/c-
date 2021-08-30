@@ -1,0 +1,23 @@
+/**
+ *  保存记录到文件
+ */
+save(score *p1)
+{
+	FILE *fp;
+	if((fp=fopen("f:\\consume","wb"))==NULL)		//如果不能打开consume文件，给出提示
+	{
+		printf("can't open this file!\n");
+		return 0;
+	}
+	else
+	{
+		while(p1!=NULL)
+		{
+		fprintf(fp,"%d,%s,%d\t\t\t",p1->number,p1->name,p1->xiaofei); //将数据写入文件
+			p1=p1->next;
+		}
+		printf("\t\t文件保存在  f:\consume!\n");
+		getch();										//按任意键返回
+	}
+	fclose(fp);										//关闭文件
+}

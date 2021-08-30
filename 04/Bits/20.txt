@@ -1,0 +1,61 @@
+	//以下for循环开始打印日期,对应星期
+	for (cal_item=0;cal_item<7;cal_item++)
+	{
+		if (!islunarcal)    			//判断是否是农历
+		{
+			//公历填充表格
+			if (fillblanks) 			//判断是否是空格
+			{
+				if (isfirstline&&dw0!=0)//第一天不为周日且在第一行
+				{
+					printf("   \t   ");//格式控制,下同
+				}
+				if (dw0==0)
+				{
+					printf("");
+					cal_item=-1;		//本次没有任何填充，所以序号仍然是0，而下个for循环时，此值会递增，因此设置成-1
+				}
+				for (idw;idw>1;idw--)
+				{
+					//填充空格，因为上一个if已经填充了一次，所以这里要少填充一次，条件控制到idw>1
+					printf("\t   ");	//输出月首所在星期的前面几格
+					cal_item++;			//当前填充位置往后移一格
+				}
+				//空格输出完毕，进行日期输出
+				idw=dw0;				//重新赋值公历月首所在星期,为了控制对应的农历输出
+				fillblanks=false;		//取消填充空格
+			}else
+			{
+				if (cal_item==0)
+				{
+					printf("   ");		//格式控制,下同
+				}
+				printf("%d\t   ",nday0);
+				nday0++;				//公历日序增加一天
+
+				if (cal_item==5||cal_item==6)		//星期六和星期日红色字体输出公历日期
+				{
+					handle = GetStdHandle(STD_OUTPUT_HANDLE);				//获取控制台句柄
+					SetConsoleTextAttribute(handle,FOREGROUND_INTENSITY|BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE|FOREGROUND_RED);
+				}else
+				{
+					SetConsoleTextAttribute(handle,BACKGROUND_INTENSITY|BACKGROUND_RED|BACKGROUND_GREEN|BACKGROUND_BLUE);
+				}
+				//如果日期大于当月的总天数
+				if (nday0>dMn)
+				{
+					printf("\r\n");
+					cal_item=-1;			//for 循环之后立刻加一,因此赋为-1
+					islunarcal=true;		//开始输出农历
+				}
+				if (cal_item==6)
+				{
+					cal_item=-1;
+					printf("\r\n");
+					islunarcal=true;		//一行公历输出完成，转到农历输出
+					if (isfirstline)
+					{
+						fillblanks=true;	//开始填充空格
+					}
+				}
+			}

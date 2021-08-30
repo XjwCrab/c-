@@ -1,0 +1,12 @@
+	//计算节气日期所在位置
+	dM0_lunar=Lday;						//农历月首所在的位置
+	dM_lunar=dM0_lunar;
+	for (index_jieqi=(month-1)*2;index_jieqi<24;index_jieqi++)
+	{
+		jq1=Jieqi[hang*24+index_jieqi];
+		jq2=Jieqi[hang*24+index_jieqi+1];
+		if (int2(jq1+0.5)<=(dM0+14)&&int2(jq2+0.5)>(dM0+14))
+		{
+			break;
+		}
+	}

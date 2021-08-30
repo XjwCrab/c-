@@ -1,0 +1,13 @@
+ 	if(m==0) 
+  	{
+	  	printf("文件中没有记录！\n");			//data.txt文件存在，但里面没有内容 
+	  	return;
+  	}
+  
+  	printf("请输入学生学号:");
+  	scanf("%d",&snum); 
+    for(i=0;i<m;i++)        	
+	 	if(snum==stu[i].num)
+	   	{		   
+     		printf("找到了这条记录，是否删除?(y/n)");
+     		scanf("%s",ch);

@@ -1,0 +1,41 @@
+			//选项“2”
+			case 2:
+				printf("公历查询：\r\n\r\n");
+				printf("请输入农历日期（如1987年闰六月十七则输入：1987 6 17，）（范围：1840～2100）\nYear Month Day>");
+				while (1)
+				{
+					scanf("%d %d %d",&year,&month,&day);
+					if (year<=start_year||year>end_year||month<1||month>12||day<1||day>30)
+					{
+						error_times++;
+						printf("您输入的日期有误，请重新输入（错误%d次/5次）：Year Month Day>",error_times);
+						if (error_times>=5)
+						{
+							printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+							system("pause >nul");
+							return 1;
+						}
+					}else
+					{
+						//输入基本正确后，再判断输入天数是否超过当月天数
+						lunar_date.iYear=year;
+						lunar_date.wMonth=month;
+						lunar_date.wDay=day;
+						lunar_date.bIsLeap=false;
+						if (GetGre(lunar_date)!=0)
+						{
+							error_times++;
+							if (error_times>=5)
+							{
+								printf("\r\n错误次数已达到上限，请按任意键退出程序。");
+								system("pause >nul");
+								return 1;
+							}
+						}else
+						{
+							break;
+						}
+					}
+				}
+				printf("\r\n");
+				break;

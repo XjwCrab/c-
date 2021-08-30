@@ -1,0 +1,21 @@
+    else{
+        i=0;
+        while(!feof(fp)&&i<8)                   //判断是否读完密码文件
+        {
+            pwd[i++]=(getw(fp)^strt);           //从文件流中读出字符赋给数组
+        }
+            
+        pwd[i]='\0';
+        
+        if(i>=8) 
+        {
+        	i--;
+        }
+        while(pwd[i]!=-1&&i>=0)
+        {
+            i--;
+        }
+        pwd[i]='\0';                             //将数组最后一位设定为字符串的结束符
+        strcpy(password,pwd);                   //将数组pwd中的数据复制到数组password中
+    } 
+} 

@@ -1,0 +1,29 @@
+/**
+ * 随机出现食物
+ */
+void createfood()
+{
+    snake *food_1;
+    srand((unsigned)time(NULL));        		//初始化随机数
+    food_1=(snake*)malloc(sizeof(snake));   	//初始化food_1
+    //保证其为偶数，使得食物能与蛇头对齐，然后食物会出现在网格线上
+    while((food_1->x%2)!=0)    		
+    {
+        food_1->x=rand()%52+2;              		//食物随机出现
+    }
+    food_1->y=rand()%24+1;
+    q=head;
+    while(q->next==NULL)
+    {
+        if(q->x==food_1->x && q->y==food_1->y)	 //判断蛇身是否与食物重合
+        {
+            free(food_1);               			//如果蛇身和食物重合，那么释放食物指针
+            createfood();               			//重新创建食物
+        }
+        q=q->next;
+    }
+    gotoxy(food_1->x,food_1->y);				//设置食物的位置
+    food=food_1;
+	color(12);
+    printf("●");           						//输出食物
+}

@@ -1,0 +1,7 @@
+// 设置变量
+int i,j;
+char t[10];
+n=0;
+score *head;
+score *p1,*p2,*p3,*max;
+p1=p2=p3=(score *)malloc(LEN);		//开辟一个新单元   
